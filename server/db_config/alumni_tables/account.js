@@ -1,10 +1,10 @@
 //Require db connection
-const pool = require('../loader/db');
+const pool = require('../../loader/db');
 
 //create registration function
-const register_table = ()=>{
+const account_table = ()=>{
     
-        pool.query(`CREATE TABLE registeration(
+        pool.query(`CREATE TABLE account(
             id SERIAL PRIMARY KEY,
             username VARCHAR(100) NOT NULL,
             password VARCHAR(100) NOT NULL,
@@ -14,8 +14,9 @@ const register_table = ()=>{
                 console.log(err)
             }else{
                 console.log('TABLE CREATED SUCCESSFULLY')
+                
             }
         })
 }
 
-register_table()
+account_table()

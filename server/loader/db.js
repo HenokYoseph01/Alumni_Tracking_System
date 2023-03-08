@@ -6,10 +6,9 @@ const config = require('../config')
 
 //Set up pg
 const pool = new Pool({
-    user: config.db.username,
-    password: config.db.password,
-    database: config.db.database,
-    connectionString: config.db.connection_string
+    connectionString: config.db.connection_string,
+    idleTimeoutMillis: 30000,
+    connectionTimeoutMillis: 2000
 })
 
 //Handle all connecton events
