@@ -15,6 +15,15 @@ const config = {
         password: process.env.PG_PASSWORD,
         connection_string: process.env.CONNECTION_STRING,
         
+    },
+    jwt:{
+        secret: process.env.JWT_SECRET,
+        expires_in: process.env.JWT_EXPIRES_IN
+    },
+    cloudinary:{
+        cloud_name: process.env.CLOUD_NAME,
+        cl_apiKey: process.env.CLOUD_API_KEY,
+        cl_apiSecret: process.env.CLOUD_API_SECRET
     }
 }
 
