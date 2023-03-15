@@ -13,5 +13,18 @@ const headController = require('./controller');
 //Routers
 router.post('/login',headController.login)
 
+router.route('/event')
+.get(headController.getAllEvent)
+.post(protect,headController.createEvent)
+.delete(protect,headController.deleteAllEvent)
+
+router.route('/event/:eventId')
+.get(headController.getSingleEvent)
+.patch(protect,headController.updateEvent)
+.delete(protect,headController.deleteSingleEvent)
+
+router.get('/alumni',headController.getAlumnus)
+router.post('/generatereport',protect,headController.generateReport)
+
 //Export router
 module.exports = router
