@@ -35,7 +35,7 @@ const protect = async(req,res,next)=>{
         
         //user variable to hold user depending on role
         let user;
-
+        
         if(decodedData.role === "Alumni"){
             //Check if alumni exists
             const alumni = await Alumni.getSingleAlumni(decodedData.id);
@@ -58,6 +58,9 @@ const protect = async(req,res,next)=>{
             //assign head to user variable
             user = head;
         }
+        
+        //Check if password has been changed at anytime
+        // if(await Alumni.checkPasswordChange())
         
         //Assign user to request
         req.user = user;

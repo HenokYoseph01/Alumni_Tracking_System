@@ -8,6 +8,7 @@ const account_table = ()=>{
             id SERIAL PRIMARY KEY,
             username VARCHAR(100) NOT NULL,
             password VARCHAR(100) NOT NULL,
+            password_changed_at TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         )`,(err,res)=>{
             if(err){
