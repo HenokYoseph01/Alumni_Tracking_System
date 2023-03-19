@@ -13,6 +13,10 @@ const headController = require('./controller');
 //Routers
 router.post('/login',headController.login)
 
+router.route('/')
+.get(protect,headController.getHeadProfile)
+.patch(protect,headController.updateHead)
+
 router.route('/event')
 .get(headController.getAllEvent)
 .post(protect,headController.createEvent)
@@ -25,6 +29,8 @@ router.route('/event/:eventId')
 
 router.get('/alumni',headController.getAlumnus)
 router.post('/generatereport',protect,headController.generateReport)
+
+router.get('/specific',protect,headController.findSpecficItem)
 
 //Export router
 module.exports = router

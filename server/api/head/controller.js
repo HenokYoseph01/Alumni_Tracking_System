@@ -256,3 +256,64 @@ exports.generateReport = async(req,res,next)=>{
         next(error)
     }
 }
+
+exports.getHeadProfile = async(req,res,next)=>{
+    try {
+        //Get head id
+        const headId = req.user.id;
+
+        //Get head profile
+        const head = await Head.getHeadProfile(headId);
+
+        //Response
+        res.status(200).json({
+            status:"SUCCESS",
+            data:{head}
+        })
+    } catch (error) {
+        next(error)
+    }
+}
+
+exports.findSpecficItem = async(req,res,next)=>{
+    try {
+        let outcome;
+        const categories = req.body.categories
+        const search = req.body.search + ':*'
+
+        if(search){
+            outcome = await Head.searchAlumni(search)
+        }
+
+        //Response
+        res.status(200).json({
+            status: "SUCCESS",
+            data:{outcome}
+        })
+    } catch (error) {
+        next(error)
+    }
+}
+
+//Update Head
+exports.updateHead = async(req,res,next)=>{
+    try {
+        //Get data for update
+        const data = req.body;
+
+        //Get id from req.user
+        data.headId = req.user.id;
+
+        //Update Head
+        const head = await Head.updateHead(data);
+
+        //Response
+        res.status(200).json({
+            status:"SUCCESS",
+            message: "Successfully Updated",
+            data:{head}
+        })
+    } catch (error) {
+        next(error)
+    }
+}
