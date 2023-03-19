@@ -171,6 +171,9 @@ exports.login = async(req,res,next)=>{
 //Create Forum
 exports.createForum = async(req,res,next)=>{
     try {
+        //Check if user is banned from forum
+        if(req.user.banned) return next(new AppError("The user has been banned from using the discussion forum",400));
+        
         //Get data from body
         const data = req.body;
 
@@ -200,6 +203,10 @@ exports.createForum = async(req,res,next)=>{
 //Get all forum
 exports.getAllForum = async(req,res,next)=>{
     try {
+        
+        //Check if user is banned from forum
+        if(req.user.banned) return next(new AppError("The user has been banned from using the discussion forum",400));
+
         //Get all forum
         const forums = await Alumni.getAllForum();
 
@@ -216,6 +223,9 @@ exports.getAllForum = async(req,res,next)=>{
 //Get author's post 
 exports.getAuthorForum = async(req,res,next)=>{
     try {
+        //Check if user is banned from forum
+        if(req.user.banned) return next(new AppError("The user has been banned from using the discussion forum",400));
+
         //Get author forum
         const forums = await Alumni.getAuthorForum(req.user.id);
 
@@ -232,6 +242,9 @@ exports.getAuthorForum = async(req,res,next)=>{
 //Update Forum post
 exports.updateForum = async(req,res,next)=>{
     try {
+        //Check if user is banned from forum
+        if(req.user.banned) return next(new AppError("The user has been banned from using the discussion forum",400));
+
         //Get forum id from params
         const forumId = req.params.forumId;
         //Check if post belongs to author or not
@@ -265,6 +278,9 @@ exports.updateForum = async(req,res,next)=>{
 //Delete Forum post
 exports.deleteForum = async(req,res,next)=>{
     try {
+        //Check if user is banned from forum
+        if(req.user.banned) return next(new AppError("The user has been banned from using the discussion forum",400));
+
         //Get forum id from params
         const forumId = req.params.forumId;
         //Check if post belongs to author or not
@@ -291,6 +307,9 @@ exports.deleteForum = async(req,res,next)=>{
 //Reply Forum Post
 exports.replyForum = async(req,res,next)=>{
     try {
+        //Check if user is banned from forum
+        if(req.user.banned) return next(new AppError("The user has been banned from using the discussion forum",400));
+
         //Get forum id from params
         const forumId = req.params.forumId;
 
@@ -330,35 +349,38 @@ exports.replyForum = async(req,res,next)=>{
     }
 }
 
-//Get replies to forum post
-exports.getReplyToForum = async(req,res,next)=>{
-    try {
-        //Get forum id from params
-        const forumId = req.params.forumId;
+// //Get replies to forum post
+// exports.getReplyToForum = async(req,res,next)=>{
+//     try {
+//         //Get forum id from params
+//         const forumId = req.params.forumId;
 
-        //Check if post belongs to author or not
-        const check = await Alumni.getSingleForum(forumId);
+//         //Check if post belongs to author or not
+//         const check = await Alumni.getSingleForum(forumId);
 
-         //Check if post exists
-         if(!check) return next(new AppError('Post does not exist',400));
+//          //Check if post exists
+//          if(!check) return next(new AppError('Post does not exist',400));
 
-         //Reply to forum
-         const replies = await Alumni.getAllRepliesToForum(forumId);
+//          //Reply to forum
+//          const replies = await Alumni.getAllRepliesToForum(forumId);
 
-         //Response
-         res.status(200).json({
-            status:'SUCCESS',
-            data:{replies}
-         })
+//          //Response
+//          res.status(200).json({
+//             status:'SUCCESS',
+//             data:{replies}
+//          })
          
-    } catch (error) {
-        next(error)
-    }
-}
+//     } catch (error) {
+//         next(error)
+//     }
+// }
 
 //Get replies to forum post
 exports.getReplyToForum = async(req,res,next)=>{
     try {
+        //Check if user is banned from forum
+        if(req.user.banned) return next(new AppError("The user has been banned from using the discussion forum",400));
+
         //Get forum id from params
         const forumId = req.params.forumId;
 
@@ -386,6 +408,9 @@ exports.getReplyToForum = async(req,res,next)=>{
 //Get single forum post
 exports.getSingleForum = async(req,res,next)=>{
     try {
+        //Check if user is banned from forum
+        if(req.user.banned) return next(new AppError("The user has been banned from using the discussion forum",400));
+
         //Get forum id from params
         const forumId = req.params.forumId;
 
@@ -410,6 +435,9 @@ exports.getSingleForum = async(req,res,next)=>{
 //Update Replies to forum post
 exports.updateRepliesToForum = async(req,res,next)=>{
     try {
+        //Check if user is banned from forum
+        if(req.user.banned) return next(new AppError("The user has been banned from using the discussion forum",400));
+
         //Get forum id from params
         const forumId = req.params.forumId;
 
@@ -454,6 +482,9 @@ exports.updateRepliesToForum = async(req,res,next)=>{
 //Delete Replies from forum post
 exports.deleteRepliesToForum = async(req,res,next)=>{
     try {
+        //Check if user is banned from forum
+        if(req.user.banned) return next(new AppError("The user has been banned from using the discussion forum",400));
+
         //Get forum id from params
         const forumId = req.params.forumId;
 
@@ -493,6 +524,9 @@ exports.deleteRepliesToForum = async(req,res,next)=>{
 //Report Forum Post
 exports.reportForum = async(req,res,next)=>{
     try {
+        //Check if user is banned from forum
+        if(req.user.banned) return next(new AppError("The user has been banned from using the discussion forum",400));
+
         //Get forum id from params
         const forumId = req.params.forumId;
 
@@ -539,6 +573,9 @@ exports.reportForum = async(req,res,next)=>{
 //Get minimum data of alumni of those who posted on forum
 exports.getMinimumAlumniInfo = async(req,res,next)=>{
     try {
+        //Check if user is banned from forum
+        if(req.user.banned) return next(new AppError("The user has been banned from using the discussion forum",400));
+        
         //Get forum id from params
         const forumId = req.params.forumId;
 

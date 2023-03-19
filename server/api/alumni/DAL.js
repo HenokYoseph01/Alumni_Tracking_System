@@ -167,7 +167,7 @@ class Alumni{
            const {rows} = await pool.query({
                 name:'get_single_alumni_profile',
                 text: `
-                SELECT first_name, last_name, grandfather_name, place_of_work, occupation,
+                SELECT id, first_name, last_name, grandfather_name, place_of_work, occupation,
                 GPA, phone_number,email
                  FROM alumni WHERE id = $1`,
                 values:[data]

@@ -478,6 +478,77 @@ class Head{
     }
     }
 
+    //Get head profile
+    static async getHeadProfile(data){
+        try {
+            const {rows} = await pool.query({
+                name:'get_single_head_profile',
+                text: `SELECT first_name, last_name, grandfather_name, email, department, phone_number
+                 FROM head WHERE id = $1`,
+                values:[data]
+            })
+            //return value
+            return rows[0]
+        } catch (error) {
+            throw error
+        }
+    }
+
+    //Search Specfic Alumni(s)
+    static async searchAlumni(data){
+        try {
+            //text
+            const text = `
+            SELECT first_name, last_name, grandfather_name,GPA,occupation 
+            FROM alumni
+            WHERE to_tsvector(COALESCE(first_name,' ')||' '||COALESCE(last_name,' ')||' '||COALESCE(grandfather_name,' ')||' '||
+            GPA||COALESCE(occupation,' ')) @@ to_tsquery($1)`
+
+            const{rows} = await pool.query({
+                name: 'search_alumni',
+                text,
+                values:[data]
+            })
+            //return value
+            return rows;
+        } catch (error) {
+            throw(error)
+        }
+    }
+
+    //Update Head
+    static async updateHead(data){
+        try {
+            //query
+            const text = 
+            `UPDATE head SET 
+             first_name = COALESCE($1,first_name),
+             last_name = COALESCE($2,last_name),
+             grandfather_name = COALESCE($3,grandfather_name),
+             email = COALESCE($4,email),
+             phone_number = COALESCE($5,phone_number)
+             WHERE id = $6
+             RETURNING *
+            `
+            const {rows} = await pool.query({
+                name:'update_head',
+                text,
+                values:[
+                    data.first_name,
+                    data.last_name,
+                    data.grandfather_name,
+                    data.email,
+                    data.phone_number,
+                    data.headId
+                ]
+            })
+
+            //Return values
+            return rows[0]
+        } catch (error) {
+            throw error
+        }
+    }
 }
 
 module.exports = Head;
