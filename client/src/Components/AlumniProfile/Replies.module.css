@@ -1,0 +1,32 @@
+.post {
+	border: 1px solid #ccc;
+	padding: 10px;
+	margin-bottom: 20px;
+  }
+  
+  .post_header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+  }
+  
+  .post_header h2 {
+	margin: 0;
+  }
+  
+  .post_footer {
+	display: flex;
+	justify-content: flex-end;
+	font-style: italic;
+  }
+  
+  .reply {
+	border: 1px solid #ccc;
+	padding: 10px;
+	margin-bottom: 20px;
+  }
+  
+  .reply_footer {
+	font-style: italic;
+  }
+  
