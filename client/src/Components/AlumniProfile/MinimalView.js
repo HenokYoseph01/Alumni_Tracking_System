@@ -19,39 +19,38 @@ import {
   MDBListGroupItem
 } from 'mdb-react-ui-kit';
 import Axios from 'axios';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useParams } from 'react-router-dom';
 
-function ProfilePage() {
-  const data = useLoaderData();
+function MinimalView() {
+    const {id} = useParams()
+    const data = useLoaderData();
   return (
     <section style={{ backgroundColor: '#eee' }}>
       <MDBContainer className="py-5">
-        <MDBRow>
-          <MDBCol>
-            <MDBBreadcrumb className="bg-light rounded-3 p-3 mb-4">
-              <MDBBreadcrumbItem>
-                <a href='#'>Home</a>
-              </MDBBreadcrumbItem>
-              <MDBBreadcrumbItem>
-                <a href="#">User</a>
-              </MDBBreadcrumbItem>
-              <MDBBreadcrumbItem active>User Profile</MDBBreadcrumbItem>
-            </MDBBreadcrumb>
-          </MDBCol>
-        </MDBRow>
-
+       
         <MDBRow>
           <MDBCol lg="4">
             <MDBCard className="mb-4">
               <MDBCardBody className="text-center">
                 <MDBCardImage
-                  src={data.photo_url}
+                  src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
                   alt="avatar"
                   className="rounded-circle"
                   style={{ width: '150px' }}
                   fluid />
                 <p className="text-muted mb-1">{data.occupation}</p>
                 <p className="text-muted mb-4">{data.place_of_work}</p>
+              </MDBCardBody>
+            </MDBCard>
+
+            <MDBCard className="mb-4 mb-lg-0">
+              <MDBCardBody className="p-0">
+                <MDBListGroup flush className="rounded-3">
+                  <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
+                    <MDBIcon fab icon="linkedin fa-lg" style={{ color: '#333333' }} />
+                    <a href={data.linkedin} style={{textDecoration:"none",color:'black'}}>LinkedIn</a>
+                  </MDBListGroupItem>
+                </MDBListGroup>
               </MDBCardBody>
             </MDBCard>
           </MDBCol>
@@ -64,33 +63,6 @@ function ProfilePage() {
                   </MDBCol>
                   <MDBCol sm="9">
                     <MDBCardText className="text-muted">{data.first_name} {data.last_name} {data.grandfather_name}</MDBCardText>
-                  </MDBCol>
-                </MDBRow>
-                <hr />
-                <MDBRow>
-                  <MDBCol sm="3">
-                    <MDBCardText>Email</MDBCardText>
-                  </MDBCol>
-                  <MDBCol sm="9">
-                    <MDBCardText className="text-muted">{data.email}</MDBCardText>
-                  </MDBCol>
-                </MDBRow>
-                <hr />
-                <MDBRow>
-                  <MDBCol sm="3">
-                    <MDBCardText>Phone</MDBCardText>
-                  </MDBCol>
-                  <MDBCol sm="9">
-                    <MDBCardText className="text-muted">{data.phone_number}</MDBCardText>
-                  </MDBCol>
-                </MDBRow>
-                <hr />
-                <MDBRow>
-                  <MDBCol sm="3">
-                    <MDBCardText>GPA</MDBCardText>
-                  </MDBCol>
-                  <MDBCol sm="9">
-                    <MDBCardText className="text-muted">{data.gpa}</MDBCardText>
                   </MDBCol>
                 </MDBRow>
                 <hr />
@@ -122,9 +94,12 @@ function ProfilePage() {
   );
 }
 
-export const AlumniProfileLoder = async()=>{
+
+export const MinimalViewLoader = async({params})=>{
   try {
-    const res = await Axios.get('https://alumni-track-system-kr9h.onrender.com/api/v1/alumni')
+    const {id} = params;
+    const res = await Axios.get(`https://alumni-track-system-kr9h.onrender.com/api/v1/alumni/forum/alumni/${id}`)
+    console.log(res.data.data.alumni)
     const resData = res.data.data.alumni
     return resData
   } catch (error) {
@@ -132,4 +107,4 @@ export const AlumniProfileLoder = async()=>{
   }
 }
 
-export default ProfilePage
+export default MinimalView
