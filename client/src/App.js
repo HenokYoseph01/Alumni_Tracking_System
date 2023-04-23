@@ -38,7 +38,7 @@ const router = createBrowserRouter(
         <Route path = 'replies/:id' element={<PostReply/>} action={PostReplyAction}/>
         <Route path = 'logout' element={<Logout/>}/>        
     </Route>
-    <Route path = 'register' element={<Registeration/>} loader={registrationLoader} action={registrationAction}/>
+    <Route path = 'register' element={<Registeration/>} loader={registrationLoader} />
     <Route path = 'register/questions' element={<Questionnaire/>}/>
     </Route>
     

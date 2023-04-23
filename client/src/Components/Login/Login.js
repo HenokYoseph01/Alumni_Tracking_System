@@ -23,6 +23,7 @@ function Login() {
   
   return (
     <>
+    {data&&data.error&&<p>Try Again</p>}
     <fetcher.Form method="post" action="/login" ref={formRef}>
     <label >Email:</label>
     <input type="text" name="name"  />
@@ -62,8 +63,7 @@ export const loginAction = async({request}) => {
     
 
     } catch (error) {
-      console.log(error.response)
-      
+      return{error:error.response.data.error}
     }
   
 }
