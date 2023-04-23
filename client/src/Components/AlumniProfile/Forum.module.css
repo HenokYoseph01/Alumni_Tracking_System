@@ -1,0 +1,76 @@
+/* Style for the forum container */
+.forum_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  /* Style for the post container */
+  .post_container {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    width: 80%;
+    padding: 20px;
+  }
+  
+  /* Style for the post title */
+  .post_title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  /* Style for the post description */
+  .post_description {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  /* Style for the post author and date */
+  .post_info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #888;
+  }
+  
+  /* Style for the post author */
+  .post_author {
+    margin-right: 10px;
+    text-decoration: none;
+    color: black;
+  }
+  
+  /* Style for the post date */
+  .post_date {
+    margin-left: 10px;
+  }
+  
+  /* Style for the forum title */
+  .forum_title {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  /* Style for the button */
+  .button {
+    background-color: #008CBA;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  /* Style for the button on hover */
+  .button:hover {
+    background-color: #0077A3;
+  }
+  
