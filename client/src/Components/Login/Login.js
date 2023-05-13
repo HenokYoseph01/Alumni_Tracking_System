@@ -52,13 +52,19 @@ export const loginAction = async({request}) => {
    Axios.defaults.headers.common = {'Authorization':`Bearer ${res.data.userToken}`}
 
     const directionAlumni = await Axios.get('https://alumni-track-system-kr9h.onrender.com/api/v1/alumni')
-    
+    console.log(res.data.role)
     if(res.data.role === 'alumni'){
       if(!directionAlumni.data.data.alumni.registered){
         return redirect('/register')
       }else{
         return redirect('/alumnus/profile')
       }
+    }else if(res.data.role === 'head'){
+      console.log('working')
+      return redirect('/head/profile')
+    }else{
+      console.log('Working')
+      return redirect('/admin/profile')
     }
     
 

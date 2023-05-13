@@ -4,8 +4,9 @@ export default function RootLayout(){
         <div>
             <header>
                 <nav>
+                    <NavLink to="/" style={{marginRight:10}}>Home</NavLink>
                     <NavLink to="/alumni" style={{marginRight:10}}>Alumni</NavLink>
-                    <NavLink to="/accnouncemnt" style={{marginRight:10}}>Annocuncement</NavLink>
+                    <NavLink to="/announcement" style={{marginRight:10}}>Annocuncement</NavLink>
                     <NavLink to="/login">Login</NavLink>
                 </nav>
                 

@@ -99,7 +99,6 @@ export const MinimalViewLoader = async({params})=>{
   try {
     const {id} = params;
     const res = await Axios.get(`https://alumni-track-system-kr9h.onrender.com/api/v1/alumni/forum/alumni/${id}`)
-    console.log(res.data.data.alumni)
     const resData = res.data.data.alumni
     return resData
   } catch (error) {

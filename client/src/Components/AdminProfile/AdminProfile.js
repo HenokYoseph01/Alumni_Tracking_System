@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import {
@@ -19,9 +19,9 @@ import {
   MDBListGroupItem
 } from 'mdb-react-ui-kit';
 import Axios from 'axios';
-import { NavLink, useLoaderData } from 'react-router-dom';
+import { useLoaderData } from 'react-router-dom';
 
-function ProfilePage() {
+function AdminProfile() {
   const data = useLoaderData();
   return (
     <section style={{ backgroundColor: '#eee' }}>
@@ -29,27 +29,18 @@ function ProfilePage() {
         <MDBRow>
           <MDBCol>
             <MDBBreadcrumb className="bg-light rounded-3 p-3 mb-4">
-                <NavLink href='#' style={{marginRight:10}}>Update Profile</NavLink>
-                <NavLink href="#" style={{marginRight:10}}>Change Password</NavLink>
+              <MDBBreadcrumbItem>
+                <a href='#'>Home</a>
+              </MDBBreadcrumbItem>
+              <MDBBreadcrumbItem>
+                <a href="#">User</a>
+              </MDBBreadcrumbItem>
+              <MDBBreadcrumbItem active>User Profile</MDBBreadcrumbItem>
             </MDBBreadcrumb>
           </MDBCol>
         </MDBRow>
 
         <MDBRow>
-          <MDBCol lg="4">
-            <MDBCard className="mb-4">
-              <MDBCardBody className="text-center">
-                <MDBCardImage
-                  src={data.photo_url}
-                  alt="avatar"
-                  className="rounded-circle"
-                  style={{ width: '150px' }}
-                  fluid />
-                <p className="text-muted mb-1">{data.occupation}</p>
-                <p className="text-muted mb-4">{data.place_of_work}</p>
-              </MDBCardBody>
-            </MDBCard>
-          </MDBCol>
           <MDBCol lg="8">
             <MDBCard className="mb-4">
               <MDBCardBody>
@@ -80,33 +71,6 @@ function ProfilePage() {
                   </MDBCol>
                 </MDBRow>
                 <hr />
-                <MDBRow>
-                  <MDBCol sm="3">
-                    <MDBCardText>GPA</MDBCardText>
-                  </MDBCol>
-                  <MDBCol sm="9">
-                    <MDBCardText className="text-muted">{data.gpa}</MDBCardText>
-                  </MDBCol>
-                </MDBRow>
-                <hr />
-                <MDBRow>
-                  <MDBCol sm="3">
-                    <MDBCardText>Gender</MDBCardText>
-                  </MDBCol>
-                  <MDBCol sm="9">
-                    <MDBCardText className="text-muted">{data.gender}</MDBCardText>
-                  </MDBCol>
-                </MDBRow>
-                <hr />
-                <MDBRow>
-                  <MDBCol sm="3">
-                    <MDBCardText>Date of Graduation</MDBCardText>
-                  </MDBCol>
-                  <MDBCol sm="9">
-                    <MDBCardText className="text-muted">{data.date_of_graduation}</MDBCardText>
-                  </MDBCol>
-                </MDBRow>
-                <hr />
               </MDBCardBody>
             </MDBCard>
 
@@ -117,14 +81,14 @@ function ProfilePage() {
   );
 }
 
-export const AlumniProfileLoder = async()=>{
+export const AdminProfileLoder = async()=>{
   try {
-    const res = await Axios.get('https://alumni-track-system-kr9h.onrender.com/api/v1/alumni')
-    const resData = res.data.data.alumni
+    const res = await Axios.get('https://alumni-track-system-kr9h.onrender.com/api/v1/admin')
+    const resData = res.data.data.admin
     return resData
   } catch (error) {
     console.log(error.response)
   }
 }
 
-export default ProfilePage
+export default AdminProfile
