@@ -15,6 +15,7 @@ export default function Forum(){
         <>
         <nav>
             <NavLink to="/alumnus/forum/me">My Posts</NavLink>
+            <NavLink to="/alumnus/forum/create" style={{marginLeft:20}}>Create</NavLink>
         </nav>
         <div className={classes.forum_container}>
             <h2>Discussion Forum</h2>
@@ -44,6 +45,6 @@ export const forumLoader = async()=>{
         const res = await Axios.get('https://alumni-track-system-kr9h.onrender.com/api/v1/alumni/forum')
         return res.data.data.forums;
     } catch (error) {
-        console.log(error.response)
+        throw Error(error.message)
     }
 }
