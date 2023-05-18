@@ -76,20 +76,26 @@ export default function Replies(){
   const [showReport, setShowReport] = useState(false);
   const [reportReason, setReportReason] = useState("");
   const [customReason, setCustomReason] = useState("");
+  const [userValidation, setUserValidation] = useState(false);
 
   const handleReportClick = () => {
     setShowReport(true);
   };
 
   const handleReportSubmit = async(e) => {
-    e.preventDefault();
-	const description = reportReason + (customReason ? `: ${customReason}` : "")
-	await Axios.post(`https://alumni-track-system-kr9h.onrender.com/api/v1/alumni/forum/report/${id}`,{
-		description
-	});
-    //console.log(reportReason + (customReason ? `: ${customReason}` : ""));
-    setShowReport(false);
-    alert("The post has been reported.");
+	try {
+		e.preventDefault();
+		const description = reportReason + (customReason ? `: ${customReason}` : "")
+		await Axios.post(`https://alumni-track-system-kr9h.onrender.com/api/v1/alumni/forum/report/${id}`,{
+			description
+		});
+		//console.log(reportReason + (customReason ? `: ${customReason}` : ""));
+		setShowReport(false);
+		alert("The post has been reported.");
+	} catch (error) {
+		setUserValidation(true);
+	}
+   
   };
 
 	useEffect(()=>{
@@ -109,7 +115,12 @@ export default function Replies(){
 	//RETURN
     return(
 		<>
-	
+		{userValidation && (
+			<div class="alert alert-danger alert-dismissible fade show" role="alert">
+			<strong>User can't report their own post</strong> 
+			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+		  </div>
+		)}
        <ForumPostWithReplies
 	   id = {location.state.id?location.state.id:dataLoad.id}
 	   title = {location.state.title?location.state.title:dataLoad.title}
