@@ -33,6 +33,7 @@ export default function ReportGenerator() {
             name = "Year"
           >
             <option value="">Select Batch</option>
+            <option value="all">All Batches</option>
             <option value="2023">2023</option>
             <option value="2022">2022</option>
             <option value="2021">2021</option>
