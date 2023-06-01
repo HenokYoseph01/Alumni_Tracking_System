@@ -44,7 +44,7 @@ const router = createBrowserRouter(
     <Route path='/' element={<FooterLayout/>}>
       <Route path="/" element={<RootLayout/>}>
       <Route index element={<Landing/>}/>
-      <Route path="/login" element={<Login/>} action={loginAction}/>
+      <Route path="/login" element={<Login/>}/>
       <Route path="/alumni" element={<Alumni/>} action={alumniActon}/>
       <Route path="/announcement" element={<ViewPublicAnnouncement/>} loader={viewPublicAnnouncementLoader}/>
     </Route>

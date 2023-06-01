@@ -10,27 +10,42 @@ export default function ReportGenerator() {
     setSelectedBatch(event.target.value);
   };
 
-  const handleReportGeneration = () => {
-    // Simulate report generation
-    setTimeout(() => {
-      setIsReportGenerated(true);
-    }, 2000);
+  const handleReportGeneration = async(event) => {
+    try {      
+      event.preventDefault()
+      const batch = selectedBatch;
+      await Axios.post(`https://alumni-track-system-kr9h.onrender.com/api/v1/head/generatereport`,{
+          batch
+      },{
+        responseType:'blob'
+      })
+      setIsReportGenerated(true)
+  } catch (error) {
+      console.log(error.response)
+  }
+    
   };
 
-  const data = useActionData();
+  //const data = useActionData();
 
-  if(data && data.alert) setIsReportGenerated(true);
+  //if(data && data.alert) setIsReportGenerated(true);
 
   return (
     <div className="container my-3">
+      {isReportGenerated && (
+        <div className="alert alert-success my-3" role="alert">
+          Report generated successfully!
+        </div>
+      )}
       <h3>Report Generator</h3>
-      <Form method="post" action="/head/report">
+      <form>
         <div className="form-group">
           <label htmlFor="batchSelect">Select Batch:</label>
           <select
             className="form-control"
             id="batchSelect"
             name = "Year"
+            onChange={handleBatchChange}
           >
             <option value="">Select Batch</option>
             <option value="all">All Batches</option>
@@ -40,16 +55,13 @@ export default function ReportGenerator() {
           </select>
         </div>
         <button
-          className="btn btn-primary">
+          className="btn btn-primary"
+          onClick={handleReportGeneration}>
           Generate Report
         </button>
-      </Form>
+      </form>
 
-      {isReportGenerated && (
-        <div className="alert alert-success my-3" role="alert">
-          Report generated successfully!
-        </div>
-      )}
+      
     </div>
   );
 };
@@ -58,9 +70,9 @@ export const ReportGeneratorAction = async({request})=>{
     try {
         const data = await request.formData();
         
-        const year = data.get('Year');
+        const batch = data.get('Year');
         await Axios.post(`https://alumni-track-system-kr9h.onrender.com/api/v1/head/generatereport`,{
-            year
+            batch
         })
         return {alert:true}
     } catch (error) {
