@@ -16,9 +16,7 @@ export default function ReportGenerator() {
       const batch = selectedBatch;
       await Axios.post(`https://alumni-track-system-kr9h.onrender.com/api/v1/head/generatereport`,{
           batch
-      },{
-        responseType:'blob'
-      })
+      }).then(data=>window.location = data.data.image)
       setIsReportGenerated(true)
   } catch (error) {
       console.log(error.response)
