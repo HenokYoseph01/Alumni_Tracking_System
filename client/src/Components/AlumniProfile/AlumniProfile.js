@@ -28,10 +28,6 @@ function ProfilePage() {
       <MDBContainer className="py-5">
         <MDBRow>
           <MDBCol>
-            <MDBBreadcrumb className="bg-light rounded-3 p-3 mb-4">
-                <NavLink href='#' style={{marginRight:10}}>Update Profile</NavLink>
-                <NavLink href="#" style={{marginRight:10}}>Change Password</NavLink>
-            </MDBBreadcrumb>
           </MDBCol>
         </MDBRow>
 

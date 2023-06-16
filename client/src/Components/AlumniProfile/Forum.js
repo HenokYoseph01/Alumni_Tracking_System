@@ -13,10 +13,6 @@ export default function Forum(){
     }
     return(
         <>
-        <nav>
-            <NavLink to="/alumnus/forum/me">My Posts</NavLink>
-            <NavLink to="/alumnus/forum/create" style={{marginLeft:20}}>Create</NavLink>
-        </nav>
         <div className={classes.forum_container}>
             <h2>Discussion Forum</h2>
             {data.map(post=>(

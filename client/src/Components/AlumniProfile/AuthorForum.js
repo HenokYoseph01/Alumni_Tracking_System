@@ -25,9 +25,6 @@ export default function AuthorForum(){
     }
     return(
         <>
-        <nav>
-            <NavLink to="/alumnus/forum">Forum</NavLink>
-        </nav>
         {showAlert && (
         <div className="alert alert-danger alert-dismissible fade show" role="alert">
           Post has been deleted

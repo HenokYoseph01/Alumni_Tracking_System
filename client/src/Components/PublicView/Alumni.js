@@ -8,7 +8,6 @@ export default function Alumni(){
     const data = useActionData()
     return(
         <div>
-            <h2>Alumni</h2>
             <Form method="post" action="/alumni">
             <div className="container">
       <div className="row justify-content-center mt-5">
