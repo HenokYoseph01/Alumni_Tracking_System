@@ -2,9 +2,9 @@
 export default function Landing(){
 
     return(
-     <div>
-      <h1>Landing</h1>
-    </div>
+      <div>
+        <h2>Landing</h2>
+      </div>
 
     )
 }

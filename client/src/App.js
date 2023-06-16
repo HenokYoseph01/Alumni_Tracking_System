@@ -37,6 +37,7 @@ import ForumBan from './Components/AlumniProfile/ForumBan';
 import EditForum, { EditForumAction } from './Components/AlumniProfile/EditPost';
 import ViewPublicAnnouncement, { viewPublicAnnouncementLoader } from './Components/PublicView/PublicAnnouncement';
 import UpdateAlumniProfile, { updateProfileLoader } from './Components/AlumniProfile/UpdateProfile';
+import ChangePasswordForm from './Components/AlumniProfile/UpdatePassword';
 
 
 
@@ -52,6 +53,7 @@ const router = createBrowserRouter(
     <Route path = 'alumnus' element={<AlumniLayout/>}>
         <Route path = 'profile' element={<AlumniProfile/>} loader={AlumniProfileLoder}/>
         <Route path = 'profile/update' element={<UpdateAlumniProfile/>} loader={updateProfileLoader}/>
+        <Route path = 'profile/password' element={<ChangePasswordForm/>}/>
         <Route path = 'announcement' element = {<Announcement/>} loader={announcementLoader}/>
         <Route path = 'forum' element = {<Forum/>} loader={forumLoader} errorElement={<ForumBan/>}/>
         <Route path = 'forum/me' element = {<AuthorForum/>} loader={authorForumLoader}/>
