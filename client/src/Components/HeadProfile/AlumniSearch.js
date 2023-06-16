@@ -44,8 +44,8 @@ export default function HeadAlumniSearch () {
   return (
     <div>
       <div className="input-group mb-3">
-      <input type="text" className="form-control" placeholder="Search" aria-label="Search" aria-describedby="search-button" onChange={(e)=>setSearch(e.target.value)} />
-      <button className="btn btn-outline-secondary" id="search-button" onClick={()=>setSearchTerm(search)}>Search</button>
+      <input type="text" className="form-control mt-3" placeholder="Search" aria-label="Search" aria-describedby="search-button" onChange={(e)=>setSearch(e.target.value)} />
+      <button className="btn btn-outline-secondary mt-3" id="search-button" onClick={()=>setSearchTerm(search)}>Search</button>
     </div>
 
       <table className="table">

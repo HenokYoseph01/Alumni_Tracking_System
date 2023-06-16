@@ -36,6 +36,7 @@ import ViewPost, { ViewPostLoader } from './Components/AdminProfile/ViewPost';
 import ForumBan from './Components/AlumniProfile/ForumBan';
 import EditForum, { EditForumAction } from './Components/AlumniProfile/EditPost';
 import ViewPublicAnnouncement, { viewPublicAnnouncementLoader } from './Components/PublicView/PublicAnnouncement';
+import UpdateAlumniProfile, { updateProfileLoader } from './Components/AlumniProfile/UpdateProfile';
 
 
 
@@ -50,6 +51,7 @@ const router = createBrowserRouter(
     </Route>
     <Route path = 'alumnus' element={<AlumniLayout/>}>
         <Route path = 'profile' element={<AlumniProfile/>} loader={AlumniProfileLoder}/>
+        <Route path = 'profile/update' element={<UpdateAlumniProfile/>} loader={updateProfileLoader}/>
         <Route path = 'announcement' element = {<Announcement/>} loader={announcementLoader}/>
         <Route path = 'forum' element = {<Forum/>} loader={forumLoader} errorElement={<ForumBan/>}/>
         <Route path = 'forum/me' element = {<AuthorForum/>} loader={authorForumLoader}/>

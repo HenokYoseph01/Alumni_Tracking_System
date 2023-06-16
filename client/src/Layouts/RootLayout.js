@@ -3,13 +3,16 @@ import img from "./assets/aau-logo.png"
 export default function RootLayout(){
     return(
         <div>
-        <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+  <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
       <div className="container">
-        <img src={img} alt="Start Image" className="navbar-brand" style={{ width: '90px', height: '90px', marginRight:'100px' }} />
-        <h2 className="text-light text-center d-flex flex-row justify-content-center">Alumni Tracking System</h2>
+        <img src={img} alt="Start Image" className="navbar-brand me-5" style={{ width: '90px', height: '90px', marginRight:'100px' }} />
+        <h3 className="text-light text-center me-5">Alumni Tracking System</h3>
+        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
+        </button>
         <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav mt-5 d-flex flex-row justify-content-end">
-            <li className="nav-item">
+          <ul className="navbar-nav ms-auto">
+          <li className="nav-item">
             <NavLink to="/" className="nav-link">Home</NavLink>
             </li>
             <li className="nav-item">
@@ -24,7 +27,7 @@ export default function RootLayout(){
           </ul>
         </div>
       </div>
-    </nav>
+    </nav> 
 
             <main>
                 <Outlet/>

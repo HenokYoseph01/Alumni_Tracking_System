@@ -38,7 +38,7 @@ export default function ReportGenerator() {
       <h3>Report Generator</h3>
       <form>
         <div className="form-group">
-          <label htmlFor="batchSelect">Select Batch:</label>
+          <label htmlFor="batchSelect" className="mb-2">Select Batch:</label>
           <select
             className="form-control"
             id="batchSelect"
@@ -53,7 +53,7 @@ export default function ReportGenerator() {
           </select>
         </div>
         <button
-          className="btn btn-primary"
+          className="btn btn-primary mt-4"
           onClick={handleReportGeneration}>
           Generate Report
         </button>

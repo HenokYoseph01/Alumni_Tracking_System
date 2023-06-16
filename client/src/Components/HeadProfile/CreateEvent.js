@@ -9,9 +9,6 @@ export default function CreateEvent() {
 
   return (
     <div className="container mt-5">
-      <nav>
-            <NavLink to="/head/announcement/view">View Annocuncements</NavLink>
-      </nav>
       <h2>Create Event</h2>
       <Form method='post' action='/head/announcement'>
         <div className="mb-3">

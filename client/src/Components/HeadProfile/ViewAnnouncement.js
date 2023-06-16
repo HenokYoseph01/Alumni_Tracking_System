@@ -1,15 +1,35 @@
-import { useLoaderData } from "react-router-dom"
+import { redirect, useLoaderData } from "react-router-dom"
 import Axios from "axios";
+import { useState } from "react";
 export default function ViewAnnouncement(){
     const data = useLoaderData();
+    const [deleteAlert,setDeleteAlert] = useState(false)
 
     const formatDate = (dateString) => {
         const options = { year: "numeric", month: "long", day: "numeric"}
         return new Date(dateString).toLocaleDateString(undefined, options)
     }
-
+    
+    const deleteEvent = async(id)=>{
+      try {
+        console.log(id)
+        console.log(deleteAlert)
+        await Axios.delete(`https://alumni-track-system-kr9h.onrender.com/api/v1/head/event/${id.toString()}`)
+        setDeleteAlert(true)
+        console.log('check')
+        return redirect('/head/announcement/view')
+      } catch (error) {
+        console.log(error.response)
+      }
+    }
     return(
         <div className="container" style={{marginTop:30}}>
+          {deleteAlert && (
+        <div className="alert alert-danger alert-dismissible fade show" role="alert">
+          Announcement has been deleted
+          <button type="button" className="btn-close" onClick={() => setDeleteAlert(false)}></button>
+        </div>
+      )}
       <div className="row">
         {data.map((event) => (
           <div className="col-md-4 mb-4" key={event.id}>
@@ -25,7 +45,8 @@ export default function ViewAnnouncement(){
                   <li className="list-group-item"><strong>Venue: </strong>{event.venue}</li>
                   <li className="list-group-item"><strong>Host: </strong>{event.host}</li>
                 </ul>
-                <a href="#" className="card-link">Learn More</a>
+                <button className="btn btn-warning me-2">Edit Event</button>
+                <button className="btn btn-danger" onClick={()=>deleteEvent(event.id)}>Delete Event</button>
               </div>
             </div>
           </div>
