@@ -77,6 +77,7 @@ export default function Replies(){
   const [reportReason, setReportReason] = useState("");
   const [customReason, setCustomReason] = useState("");
   const [userValidation, setUserValidation] = useState(false);
+  const [reported, setReported] = useState(false)
 
   const handleReportClick = () => {
     setShowReport(true);
@@ -91,7 +92,10 @@ export default function Replies(){
 		});
 		//console.log(reportReason + (customReason ? `: ${customReason}` : ""));
 		setShowReport(false);
-		alert("The post has been reported.");
+		setReported(true)
+		setTimeout(()=>{
+			setReported(false)
+		},5000)
 	} catch (error) {
 		setUserValidation(true);
 	}
@@ -121,6 +125,14 @@ export default function Replies(){
 			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 		  </div>
 		)}
+
+		{reported && (
+			<div class="warning alert-warning alert-dismissible fade show" role="alert">
+			<strong>The post has been reported</strong> 
+			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+		  </div>
+		)}
+
        <ForumPostWithReplies
 	   id = {location.state.id?location.state.id:dataLoad.id}
 	   title = {location.state.title?location.state.title:dataLoad.title}

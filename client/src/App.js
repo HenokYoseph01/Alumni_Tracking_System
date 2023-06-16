@@ -38,6 +38,8 @@ import EditForum, { EditForumAction } from './Components/AlumniProfile/EditPost'
 import ViewPublicAnnouncement, { viewPublicAnnouncementLoader } from './Components/PublicView/PublicAnnouncement';
 import UpdateAlumniProfile, { updateProfileLoader } from './Components/AlumniProfile/UpdateProfile';
 import ChangePasswordForm from './Components/AlumniProfile/UpdatePassword';
+import UpdateHeadPassword from './Components/HeadProfile/UpdateHeadPassword';
+import UpdateAdminPassword from './Components/AdminProfile/UpdateAdminPassword';
 
 
 
@@ -73,6 +75,7 @@ const router = createBrowserRouter(
       <Route path = 'alumnus' element={<HeadAlumniSearch/>} loader={HeadAlumniSearchLoader}/>
       <Route path = 'announcement' element={<CreateEvent/>} action={CreateEventAction}/>
       <Route path = 'announcement/view' element={<ViewAnnouncement/>} loader={viewAnnouncementLoader}/>
+      <Route path = 'changePassword' element={<UpdateHeadPassword/>}/>
     </Route>
     {/* Head Layout */}
     
@@ -85,6 +88,7 @@ const router = createBrowserRouter(
       <Route path = 'create/admin' element={<AdminAccountCreation/>}/>
       <Route path = 'moderate' element={<Moderation/>} loader={ModerationLoader}/>
       <Route path = 'moderate/post/:id' element={<ViewPost/>} loader={ViewPostLoader}/>
+      <Route path = 'changePassword' element={<UpdateAdminPassword/>}/>
     </Route>
     </Route>
     

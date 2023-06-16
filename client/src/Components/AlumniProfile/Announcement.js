@@ -25,7 +25,6 @@ export default function Announcement(){
                   <li className="list-group-item"><strong>Venue: </strong>{event.venue}</li>
                   <li className="list-group-item"><strong>Host: </strong>{event.host}</li>
                 </ul>
-                <a href="#" className="card-link">Learn More</a>
               </div>
             </div>
           </div>
