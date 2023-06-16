@@ -2,6 +2,7 @@ import React,{useEffect, useRef, useState} from 'react';
 import Axios from 'axios';
 import AlumniProfile from '../AlumniProfile/AlumniProfile'
 import { Form, redirect, useActionData, useFetcher,useNavigate } from 'react-router-dom';
+import "../css/all.css";
 
 
 
@@ -52,7 +53,7 @@ function Login() {
       <div className="row justify-content-center mt-5">
         <div className="col-md-6">
           <div className="card">
-            <div className="card-header bg-primary text-light">
+            <div className="card-head">
               <h3 className="text-center">Login</h3>
             </div>
             <div className="card-body">
@@ -82,7 +83,7 @@ function Login() {
                     onChange={(e) => setPassword(e.target.value)}
                   />
                 </div>
-                <button onClick={handleLogin} className="btn btn-primary btn-block mt-5">Login</button>
+                <button onClick={handleLogin} className="button">Login</button>
               </form>
             </div>
           </div>

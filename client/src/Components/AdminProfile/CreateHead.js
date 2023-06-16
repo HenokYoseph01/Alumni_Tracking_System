@@ -1,43 +1,47 @@
-import React, { useState } from 'react';
-import Axios from 'axios'
+import React, { useState } from "react";
+import Axios from "axios";
+import "../css/all.css";
 function HeadOfSchoolForm() {
-  const [first_name, setFirstName] = useState('');
-  const [last_name, setLastName] = useState('');
-  const [grandfather_name, setGrandfatherName] = useState('');
-  const [phone_number, setPhoneNumber] = useState('');
-  const [email, setEmail] = useState('');
-  const [department, setDepartment] = useState('');
+  const [first_name, setFirstName] = useState("");
+  const [last_name, setLastName] = useState("");
+  const [grandfather_name, setGrandfatherName] = useState("");
+  const [phone_number, setPhoneNumber] = useState("");
+  const [email, setEmail] = useState("");
+  const [department, setDepartment] = useState("");
 
-  const handleSubmit = async(event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-        await Axios.post('https://alumni-track-system-kr9h.onrender.com/api/v1/admin/headaccount',{
-            first_name,
-            last_name,
-            grandfather_name,
-            phone_number,
-            email,
-            department
-        })
-        alert('Head of School account created successfully!');
-        setFirstName('')
-        setLastName('')
-        setGrandfatherName('')
-        setPhoneNumber('')
-        setEmail('')
-        setDepartment('')
+      await Axios.post(
+        "https://alumni-track-system-kr9h.onrender.com/api/v1/admin/headaccount",
+        {
+          first_name,
+          last_name,
+          grandfather_name,
+          phone_number,
+          email,
+          department,
+        }
+      );
+      alert("Head of School account created successfully!");
+      setFirstName("");
+      setLastName("");
+      setGrandfatherName("");
+      setPhoneNumber("");
+      setEmail("");
+      setDepartment("");
     } catch (error) {
-        console.log(error.response)
+      console.log(error.response);
     }
-    
   };
 
   return (
-    <div className="container mt-4">
-      <h3>Create Head of School Account</h3>
+    <div style={myStyle}> 
+      <h1>Create Head of School Account</h1>
+      <br></br>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label htmlFor="firstName">First Name:</label>
+          <label htmlFor="firstName">First Name</label>
           <input
             type="text"
             className="form-control"
@@ -48,7 +52,7 @@ function HeadOfSchoolForm() {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="lastName">Last Name:</label>
+          <label htmlFor="lastName">Last Name</label>
           <input
             type="text"
             className="form-control"
@@ -59,7 +63,7 @@ function HeadOfSchoolForm() {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="grandfatherName">Grandfather Name:</label>
+          <label htmlFor="grandfatherName">Grandfather Name</label>
           <input
             type="text"
             className="form-control"
@@ -70,7 +74,7 @@ function HeadOfSchoolForm() {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="phoneNumber">Phone Number:</label>
+          <label htmlFor="phoneNumber">Phone Number</label>
           <input
             type="text"
             className="form-control"
@@ -81,7 +85,7 @@ function HeadOfSchoolForm() {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="email">Email:</label>
+          <label htmlFor="email">Email</label>
           <input
             type="email"
             className="form-control"
@@ -92,7 +96,7 @@ function HeadOfSchoolForm() {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="department">Department:</label>
+          <label htmlFor="department">Department</label>
           <input
             type="text"
             className="form-control"
@@ -102,12 +106,15 @@ function HeadOfSchoolForm() {
             required
           />
         </div>
-        <button type="submit" className="btn btn-primary">
+        <button type="submit" className="button">
           Submit
         </button>
       </form>
     </div>
   );
 }
+const myStyle = {
+  margin: "40px 380px",
+};
 
 export default HeadOfSchoolForm;

@@ -24,11 +24,11 @@ import { useLoaderData } from 'react-router-dom';
 function AdminProfile() {
   const data = useLoaderData();
   return (
-    <section style={{ backgroundColor: '#eee' }}>
+    <section style={{margin: "40px 380px", backgroundColor: '#eee' }}>
       <MDBContainer className="py-5">
         <MDBRow>
           <MDBCol>
-            <MDBBreadcrumb className="bg-light rounded-3 p-3 mb-4">
+            <MDBBreadcrumb className=" rounded-3 p-3 mb-4" style={{backgroundColor:'#fff'}}>
               <MDBBreadcrumbItem>
                 <a href='#'>Home</a>
               </MDBBreadcrumbItem>
@@ -45,7 +45,7 @@ function AdminProfile() {
             <MDBCard className="mb-4">
               <MDBCardBody>
                 <MDBRow>
-                  <MDBCol sm="3">
+                  <MDBCol sm="5">
                     <MDBCardText>Full Name</MDBCardText>
                   </MDBCol>
                   <MDBCol sm="9">

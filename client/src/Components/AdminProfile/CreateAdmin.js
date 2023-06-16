@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import '../css/all.css'
 import Axios from 'axios'
 export default function AdminAccountCreation() {
   const [first_name, setFirstName] = useState('');
@@ -37,8 +38,9 @@ export default function AdminAccountCreation() {
   };
 
   return (
-    <div className="container mt-3">
-      <h3>Admin Account Creation</h3>
+    <div style={myStyle}>
+      <h1>Admin Account Creation</h1>
+      <br/>
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="firstName" className="form-label">First Name</label>
@@ -60,9 +62,13 @@ export default function AdminAccountCreation() {
           <label htmlFor="email" className="form-label">Email</label>
           <input type="email" className="form-control" id="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
         </div>
-        <button type="submit" className="btn btn-primary">Create Account</button>
+        <button type="submit" className="button">Create Account</button>
         <div id="success-alert" className="alert alert-success mt-3 d-none" role="alert">Admin account created successfully!</div>
       </form>
     </div>
   );
 }
+
+const myStyle = {
+  margin:'40px 380px'
+};
