@@ -24,66 +24,51 @@ import { useLoaderData } from 'react-router-dom';
 function HeadProfilePage() {
   const data = useLoaderData();
   return (
-    <section style={{ backgroundColor: '#eee' }}>
+    <section style={{ backgroundColor: '#f8f9fa' }}>
       <MDBContainer className="py-5">
         <MDBRow>
-          <MDBCol>
-            <MDBBreadcrumb className="bg-light rounded-3 p-3 mb-4">
-              <MDBBreadcrumbItem>
-                <a href='#'>Home</a>
-              </MDBBreadcrumbItem>
-              <MDBBreadcrumbItem>
-                <a href="#">User</a>
-              </MDBBreadcrumbItem>
-              <MDBBreadcrumbItem active>User Profile</MDBBreadcrumbItem>
-            </MDBBreadcrumb>
-          </MDBCol>
-        </MDBRow>
-
-        <MDBRow>
-          <MDBCol lg="8">
-            <MDBCard className="mb-4">
+          <MDBCol lg="8" className="mx-auto">
+            <MDBCard className="shadow-sm mb-4">
               <MDBCardBody>
-                <MDBRow>
+                <MDBRow className="mb-4">
                   <MDBCol sm="3">
-                    <MDBCardText>Full Name</MDBCardText>
+                    <h5 className="mb-0">Full Name</h5>
                   </MDBCol>
                   <MDBCol sm="9">
-                    <MDBCardText className="text-muted">{data.first_name} {data.last_name} {data.grandfather_name}</MDBCardText>
+                    <p className="text-muted mb-0">{data.first_name} {data.last_name} {data.grandfather_name}</p>
                   </MDBCol>
                 </MDBRow>
                 <hr />
-                <MDBRow>
+                <MDBRow className="mb-4">
                   <MDBCol sm="3">
-                    <MDBCardText>Email</MDBCardText>
+                    <h5 className="mb-0">Email</h5>
                   </MDBCol>
                   <MDBCol sm="9">
-                    <MDBCardText className="text-muted">{data.email}</MDBCardText>
+                    <p className="text-muted mb-0">{data.email}</p>
                   </MDBCol>
                 </MDBRow>
                 <hr />
-                <MDBRow>
+                <MDBRow className="mb-4">
                   <MDBCol sm="3">
-                    <MDBCardText>Phone</MDBCardText>
+                    <h5 className="mb-0">Phone</h5>
                   </MDBCol>
                   <MDBCol sm="9">
-                    <MDBCardText className="text-muted">{data.phone_number}</MDBCardText>
+                    <p className="text-muted mb-0">{data.phone_number}</p>
                   </MDBCol>
                 </MDBRow>
                 <hr />
-                <MDBRow>
+                <MDBRow className="mb-4">
                   <MDBCol sm="3">
-                    <MDBCardText>Department</MDBCardText>
+                    <h5 className="mb-0">Department</h5>
                   </MDBCol>
                   <MDBCol sm="9">
-                    <MDBCardText className="text-muted">{data.department}</MDBCardText>
+                    <p className="text-muted mb-0">{data.department}</p>
                   </MDBCol>
                 </MDBRow>
                 <hr />
               </MDBCardBody>
             </MDBCard>
-
-           </MDBCol>
+          </MDBCol>
         </MDBRow>
       </MDBContainer>
     </section>
