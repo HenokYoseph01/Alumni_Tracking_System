@@ -1,8 +1,9 @@
-import { redirect, useLoaderData } from "react-router-dom"
+import { redirect, useLoaderData, useNavigate } from "react-router-dom"
 import Axios from "axios";
 import { useState } from "react";
 export default function ViewAnnouncement(){
     const data = useLoaderData();
+    const navigate = useNavigate();
     const [deleteAlert,setDeleteAlert] = useState(false)
 
     const formatDate = (dateString) => {
@@ -17,7 +18,10 @@ export default function ViewAnnouncement(){
         await Axios.delete(`https://alumni-track-system-kr9h.onrender.com/api/v1/head/event/${id.toString()}`)
         setDeleteAlert(true)
         console.log('check')
-        return redirect('/head/announcement/view')
+        setTimeout(()=>{
+          navigate(0)
+        },5000)
+        
       } catch (error) {
         console.log(error.response)
       }
@@ -45,7 +49,20 @@ export default function ViewAnnouncement(){
                   <li className="list-group-item"><strong>Venue: </strong>{event.venue}</li>
                   <li className="list-group-item"><strong>Host: </strong>{event.host}</li>
                 </ul>
-                <button className="btn btn-warning me-2">Edit Event</button>
+                <button className="btn btn-warning me-2" onClick={()=>navigate(
+                  `/head/announcement/edit/${event.id}`,{
+                    state:{
+                      name:event.name,
+                      description:event.description,
+                      category: event.category,
+                      event_date: event.event_date,
+                      time_start: event.time_start,
+                      time_end: event.time_end,
+                      venue: event.venue,
+                      host: event.host
+                    }
+                  })
+              }>Edit Event</button>
                 <button className="btn btn-danger" onClick={()=>deleteEvent(event.id)}>Delete Event</button>
               </div>
             </div>

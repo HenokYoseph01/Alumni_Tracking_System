@@ -3,9 +3,9 @@ import React, { useState } from 'react';
 import Axios from 'axios'
 import { Form, NavLink, redirect, useActionData } from 'react-router-dom';
 
-
 export default function CreateEvent() {
   const data = useActionData();
+
 
   return (
     <div className="container mt-5">
@@ -131,6 +131,7 @@ export default function CreateEvent() {
 
 export const CreateEventAction = async({request})=>{
   try {
+    console.log("WORKING")
     const data = await request.formData();
     const name = data.get('eventName')
     const category = data.get('category')
@@ -141,8 +142,8 @@ export const CreateEventAction = async({request})=>{
     const venue = data.get('venue')
     const host = data.get('host')
     const viewable = data.get('view')
-
-    Axios.post('https://alumni-track-system-kr9h.onrender.com/api/v1/head/event',{
+    console.log("WORKING")
+   await Axios.post('https://alumni-track-system-kr9h.onrender.com/api/v1/head/event',{
       name,
       category,
       description,
@@ -153,8 +154,8 @@ export const CreateEventAction = async({request})=>{
       host,
       viewable
     })
-
-    return redirect('/head/profile')
+    console.log("WORKING")
+    return redirect('/head/announcement/view')
   } catch (error) {
     console.log(error.response)
   }
