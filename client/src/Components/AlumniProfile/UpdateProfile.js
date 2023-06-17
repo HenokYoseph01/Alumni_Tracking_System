@@ -28,6 +28,7 @@ const UpdateAlumniProfile = () => {
   const handleSubmit = async(e) => {
     e.preventDefault();
     // Perform update operation with the updated person object
+    console.log(place_of_work)
     if(image){
         const formdata = new FormData();
         formdata.append('avatar',image)
@@ -46,7 +47,7 @@ const UpdateAlumniProfile = () => {
         city,
         subcity,
         region,
-        place_of_work,
+        workname: place_of_work,
         occupation
     })
     navigate('/alumnus/profile',{replace:true})
