@@ -40,6 +40,7 @@ import UpdateAlumniProfile, { updateProfileLoader } from './Components/AlumniPro
 import ChangePasswordForm from './Components/AlumniProfile/UpdatePassword';
 import UpdateHeadPassword from './Components/HeadProfile/UpdateHeadPassword';
 import UpdateAdminPassword from './Components/AdminProfile/UpdateAdminPassword';
+import EditAnnouncement, { EditAnnouncementAction } from './Components/HeadProfile/EditAnnouncement';
 
 
 
@@ -75,6 +76,7 @@ const router = createBrowserRouter(
       <Route path = 'alumnus' element={<HeadAlumniSearch/>} loader={HeadAlumniSearchLoader}/>
       <Route path = 'announcement' element={<CreateEvent/>} action={CreateEventAction}/>
       <Route path = 'announcement/view' element={<ViewAnnouncement/>} loader={viewAnnouncementLoader}/>
+      <Route path = 'announcement/edit/:id' element={<EditAnnouncement/>} action={EditAnnouncementAction}/>
       <Route path = 'changePassword' element={<UpdateHeadPassword/>}/>
     </Route>
     {/* Head Layout */}

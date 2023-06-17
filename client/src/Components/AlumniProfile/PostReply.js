@@ -32,6 +32,7 @@ export const PostReplyAction = async ({params,request})=>{
 
         const data = await request.formData();
         const {id} = params
+        console.log(id)
         const description = data.get('description')
 
         await Axios.post(`https://alumni-track-system-kr9h.onrender.com/api/v1/alumni/forum/reply/${id}`,{
