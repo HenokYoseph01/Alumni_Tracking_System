@@ -24,7 +24,7 @@ import { NavLink, useLoaderData } from 'react-router-dom';
 function ProfilePage() {
   const data = useLoaderData();
   return (
-    <section style={{ backgroundColor: '#eee' }}>
+    <section style={myStyle}>
       <MDBContainer className="py-5">
         <MDBRow>
           <MDBCol>
@@ -112,6 +112,9 @@ function ProfilePage() {
     </section>
   );
 }
+const myStyle = {
+  margin: "40px 380px",
+};
 
 export const AlumniProfileLoder = async()=>{
   try {

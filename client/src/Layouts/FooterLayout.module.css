@@ -1,11 +1,18 @@
+:root{
+  --color-primary: #202f5b;
+  --color-yellow: #f7931d; 
+  --color-white: #ffffff;
+  --color-black: #000000;
+}
 .footer_container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80px;
-    background-color: #333;
-    color: white;
+    height: 50px;
+    background-color:var(--color-primary);
+    color: var(--color-white);
     margin-top: 230px;
+    margin-bottom: 5px;
   }
   
   .footer_text {

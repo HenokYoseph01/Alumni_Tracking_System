@@ -1,54 +1,79 @@
-import { NavLink, Outlet } from "react-router-dom"
-import img from "./assets/aau-logo.png"
+import { Outlet } from "react-router-dom";
+import Navbar from "react-bootstrap/Navbar";
+import Nav from "react-bootstrap/Nav";
+import NavDropdown from "react-bootstrap/NavDropdown";
+import img from "./assets/aau-logo.png";
+import sislogo from "./assets/school logo.jpg";
+import "../css/navbar.css";
 
 export default function AdminLayout(){
     return(
-        <div>
-            <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-      <div className="container">
-        <img src={img} alt="Start Image" className="navbar-brand me-5" style={{ width: '90px', height: '90px', marginRight:'100px' }} />
-        <h3 className="text-light text-center me-5">Alumni Tracking System</h3>
-        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav ms-auto">
-          <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Profile
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><NavLink to="/admin/profile" className="dropdown-item">Profile</NavLink></li>
-            <li><NavLink to="/admin/changePassword" className="dropdown-item">Change Password</NavLink></li>
-          </ul>
-        </li>
-            <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Account Creation
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <li><NavLink to="/admin/create/alumni" className="dropdown-item">Alumni Creation</NavLink></li>
-                <li><NavLink to="/admin/create/alumniManual" className="dropdown-item">Indvidual Alumni Creation</NavLink></li>
-                <li><NavLink to="/admin/create/head" className="dropdown-item">Head Creation</NavLink></li>
-                <li><NavLink to="/admin/create/admin" className="dropdown-item">Admin Creation</NavLink></li>
-          </ul>
-        </li>
-        <li className="nav-item">
-            <NavLink to="/admin/moderate" className="nav-link">Moderation</NavLink>
-            </li>
-            <li className="nav-item">
-            <NavLink to="/alumnus/logout" className="nav-link">Logout</NavLink>
-            </li>
-          </ul>
+      <>
+      <div class="header">
+        <div class="brand">
+          <img src={img} class="aau-logo" />
+          <h2>Alumni Tracking System - School of Information Science</h2>
+          <img src={sislogo} class="sis-logo" />
         </div>
+        <Navbar class="navbar">
+          <Nav id="navbar-nav">
+            <NavDropdown title="Profile" id="profile-dropdown" className="item">
+              <NavDropdown.Item href="/admin/profile" className="dropdown-item">
+                Profile
+              </NavDropdown.Item>
+              <NavDropdown.Item
+                href="/admin/changePassword"
+                className="dropdown-item"
+              >
+                Change Password
+              </NavDropdown.Item>
+            </NavDropdown>
+            <NavDropdown
+              title="Account Creation"
+              id="account-creation-dropdown"
+              className="item"
+            >
+              <NavDropdown.Item
+                href="/admin/create/alumni"
+                className="dropdown-item"
+              >
+                Upload Alumni List
+              </NavDropdown.Item>
+              <NavDropdown.Item
+                href="/admin/create/alumniManual"
+                className="dropdown-item"
+              >
+                Individual Alumni Creation
+              </NavDropdown.Item>
+              <NavDropdown.Item
+                href="/admin/create/head"
+                className="dropdown-item"
+              >
+                Head Creation
+              </NavDropdown.Item>
+              <NavDropdown.Item
+                href="/admin/create/admin"
+                className="dropdown-item"
+              >
+                Admin Creation
+              </NavDropdown.Item>
+            </NavDropdown>
+            <Nav.Link href="/admin/moderate" id="moderation" className="item">
+              Moderation
+            </Nav.Link>
+            <Nav.Link href="/alumnus/logout" id="logout" className="item">
+              Logout
+            </Nav.Link>
+          </Nav>
+        </Navbar>
+        <main>
+          <Outlet />
+        </main>
       </div>
-    </nav> 
-
-
-            <main>
-                <Outlet/>
-            </main>
-         
-        </div>
-    )
+    </>
+  );
 }
+const imgStyle = {
+  height: "30px",
+  width: "30px",
+};
