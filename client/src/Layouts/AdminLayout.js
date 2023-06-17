@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, NavLink } from "react-router-dom";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
@@ -58,11 +58,11 @@ export default function AdminLayout(){
                 Admin Creation
               </NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href="/admin/moderate" id="moderation" className="item">
-              Moderation
+            <Nav.Link id="moderation" className="item">
+              <NavLink to="/admin/moderate" className="route">Moderation</NavLink>
             </Nav.Link>
-            <Nav.Link href="/alumnus/logout" id="logout" className="item">
-              Logout
+            <Nav.Link className="item">
+              <NavLink to="/alumnus/logout" className="route">Logout</NavLink>
             </Nav.Link>
           </Nav>
         </Navbar>

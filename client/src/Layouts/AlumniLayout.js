@@ -18,48 +18,47 @@ export default function AdminLayout(){
         <Navbar class="navbar">
           <Nav id="navbar-nav">
             <NavDropdown title="Profile" id="profile-dropdown" className="item">
-              <NavDropdown.Item href="/alumnus/profile" className="dropdown-item">
-                Profile
+              <NavDropdown.Item>
+                <NavLink to="/alumnus/profile" className="dropdown-item">Profile</NavLink>
               </NavDropdown.Item>
-              <NavDropdown.Item href="/alumnus/profile/update" className="dropdown-item"> Update Profile </NavDropdown.Item>
-              <NavDropdown.Item
-                href="/alumnus/profile/password"
-                className="dropdown-item"
-              >
-                Change Password
+              <NavDropdown.Item>
+                <NavLink to="/alumnus/profile/update" className="dropdown-item">Update Profile
+                </NavLink> 
+              </NavDropdown.Item>
+              <NavDropdown.Item>
+                <NavLink to="/alumnus/profile/password" className="dropdown-item">Change Password</NavLink>
               </NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href="/alumnus/announcement" className="item">
-              Announcement
+
+            <Nav.Link className="item">
+              <NavLink to="/alumnus/announcement" className="route">Announcement</NavLink>
             </Nav.Link>
+
             <NavDropdown
               title="Discussion Forum"
               id="discussion-forum-dropdown"
               className="item"
             >
               <NavDropdown.Item
-                href="/alumnus/forum"
                 className="dropdown-item"
               >
-                Forum
+                <NavLink to="/alumnus/forum" className="dropdown-item">Forum</NavLink>
               </NavDropdown.Item>
               <NavDropdown.Item
-                href="/alumnus/forum/me"
                 className="dropdown-item"
               >
-                My Posts
+                <NavLink to="/alumnus/forum/me" className="dropdown-item">My Posts</NavLink>
               </NavDropdown.Item>
               <NavDropdown.Item
-                href="/alumnus/forum/create"
                 className="dropdown-item"
               >
-                Create
+                <NavLink to="/alumnus/forum/create" className="dropdown-item">Create</NavLink>
               </NavDropdown.Item>
               
             </NavDropdown>
             
-            <Nav.Link href="/alumnus/logout"  className="item">
-              Logout
+            <Nav.Link className="item">
+              <NavLink to="/alumnus/logout" className="route">Logout</NavLink>
             </Nav.Link>
           </Nav>
         </Navbar>
