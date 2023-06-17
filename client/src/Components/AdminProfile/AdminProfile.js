@@ -1,6 +1,7 @@
 import React from 'react';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import '../components.css'
 import {
   MDBCol,
   MDBContainer,
@@ -24,27 +25,21 @@ import { useLoaderData } from 'react-router-dom';
 function AdminProfile() {
   const data = useLoaderData();
   return (
-    <section style={{ backgroundColor: '#eee' }}>
-      <MDBContainer className="py-5">
+    <section className = "profile_content">
+     
         <MDBRow>
           <MDBCol>
-            <MDBBreadcrumb className="bg-light rounded-3 p-3 mb-4">
-              <MDBBreadcrumbItem>
-                <a href='#'>Home</a>
-              </MDBBreadcrumbItem>
-              <MDBBreadcrumbItem>
-                <a href="#">User</a>
-              </MDBBreadcrumbItem>
-              <MDBBreadcrumbItem active>User Profile</MDBBreadcrumbItem>
+            <MDBBreadcrumb className="nav rounded-3 p-3 mb-4">
+              <MDBBreadcrumbItem className='bc_item white' active>User Profile</MDBBreadcrumbItem>
             </MDBBreadcrumb>
           </MDBCol>
         </MDBRow>
 
         <MDBRow>
           <MDBCol lg="8">
-            <MDBCard className="mb-4">
-              <MDBCardBody>
-                <MDBRow>
+            
+              <MDBCardBody className='cardy'>
+                <MDBRow className='de'>
                   <MDBCol sm="3">
                     <MDBCardText>Full Name</MDBCardText>
                   </MDBCol>
@@ -53,7 +48,7 @@ function AdminProfile() {
                   </MDBCol>
                 </MDBRow>
                 <hr />
-                <MDBRow>
+                <MDBRow className='de'>
                   <MDBCol sm="3">
                     <MDBCardText>Email</MDBCardText>
                   </MDBCol>
@@ -62,7 +57,7 @@ function AdminProfile() {
                   </MDBCol>
                 </MDBRow>
                 <hr />
-                <MDBRow>
+                <MDBRow className='de'>
                   <MDBCol sm="3">
                     <MDBCardText>Phone</MDBCardText>
                   </MDBCol>
@@ -70,13 +65,12 @@ function AdminProfile() {
                     <MDBCardText className="text-muted">{data.phone_number}</MDBCardText>
                   </MDBCol>
                 </MDBRow>
-                <hr />
               </MDBCardBody>
-            </MDBCard>
+           
 
            </MDBCol>
         </MDBRow>
-      </MDBContainer>
+      
     </section>
   );
 }

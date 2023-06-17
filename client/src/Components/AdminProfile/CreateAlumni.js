@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Axios from 'axios'
 import { useNavigate } from 'react-router-dom';
+import '../components.css'
 function AlumniAccountCreationPage() {
   const [file, setFile] = useState(null);
   const [showAlert, setShowAlert] = useState(false);
@@ -23,7 +24,7 @@ function AlumniAccountCreationPage() {
   };
 
   return (
-    <div className="container">
+    <div style={myStyle}>
         {showAlert && (
         <div className="alert alert-success mt-3" role="alert">
           Accounts have been successfully created and sent.
@@ -33,13 +34,16 @@ function AlumniAccountCreationPage() {
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="file">Upload File:</label>
+          <br/>
           <input type="file" className="form-control-file" id="file" onChange={handleFileChange} />
         </div>
-        <button type="submit" className="btn btn-primary">Submit</button>
+        <button type="submit" className="button">Submit</button>
       </form>
       
     </div>
   );
 }
-
+const myStyle = {
+  margin: "40px 380px",
+};
 export default AlumniAccountCreationPage;

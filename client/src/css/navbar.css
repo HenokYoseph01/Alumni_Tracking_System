@@ -1,0 +1,49 @@
+:root {
+  --color-primary: #202f5b;
+  --color-yellow: #f7931d;
+  --color-white: #ffffff;
+  --color-black: #000000;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+.header .brand {
+  display: flex;
+  padding: 20px 0px;
+  width: 100%;
+  background-color: var(--color-primary);
+  justify-content: center;
+  align-items: center;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.header .brand h2 {
+  align-items: center;
+  color: var(--color-white);
+  margin-top: 5px;
+  margin-left: 10px;
+}
+.header .brand .aau-logo {
+  width: 50px;
+  height: 50px;
+  margin-right: 3px;
+}
+.header .brand .sis-logo {
+  width: 50px;
+  height: 40px;
+  margin-top: 7px;
+  margin-left: 15px;
+}
+.header .navbar {
+  height: 20px;
+  justify-content: center;
+  background-color: var(--color-yellow);
+}
+.header .navbar .item {
+  margin-right: 60px;
+  margin-left: 60px;
+}/*# sourceMappingURL=navbar.css.map */

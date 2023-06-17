@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Axios from "axios";
 import { useNavigate } from 'react-router-dom';
-
+import '../components.css'
 
 const UpdateAdminPassword = () => {
   //Get navigation route
@@ -69,7 +69,7 @@ const UpdateAdminPassword = () => {
         <div className="col-md-6">
           <div className="card">
             <div className="card-body">
-              <h2 className="card-title text-center mb-4">Change Password</h2>
+              <h2 className="card-title text-center mb-4" style={{color:'#202f5b'}}>Change Password</h2>
               <form onSubmit={handleSubmit}>
                 <div className="form-group">
                   <label htmlFor="newPassword" className='form-label'>New Password</label>
@@ -98,7 +98,7 @@ const UpdateAdminPassword = () => {
                 {errorMessage && <div className="alert alert-danger">{errorMessage}</div>}
                 {successMessage && <div className="success alert-success">{successMessage}</div>}
 
-                <button className="btn btn-primary btn-block mt-3" type="submit">
+                <button className="button" style={{marginLeft:'100px', width:'300px'}} type="submit">
                   Change Password
                 </button>
               </form>
