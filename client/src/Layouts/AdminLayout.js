@@ -58,11 +58,11 @@ export default function AdminLayout(){
                 Admin Creation
               </NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link id="moderation" className="item">
-              <NavLink to="/admin/moderate" className="route">Moderation</NavLink>
+            <Nav.Link id="moderation">
+              <NavLink to="/admin/moderate" className="item route">Moderation</NavLink>
             </Nav.Link>
-            <Nav.Link className="item">
-              <NavLink to="/alumnus/logout" className="route">Logout</NavLink>
+            <Nav.Link>
+              <NavLink to="/alumnus/logout" className="item route">Logout</NavLink>
             </Nav.Link>
           </Nav>
         </Navbar>

@@ -2,13 +2,13 @@
 import React, { useState } from 'react';
 import Axios from 'axios'
 import { Form, NavLink, redirect, useActionData } from 'react-router-dom';
-
+import '../components.css'
 export default function CreateEvent() {
   const data = useActionData();
 
 
   return (
-    <div className="container mt-5">
+    <div style = {myStyle}>
       <h2>Create Event</h2>
       <Form method='post' action='/head/announcement'>
         <div className="mb-3">
@@ -124,11 +124,13 @@ export default function CreateEvent() {
             <option value="Alumni">Alumni</option>
           </select>
         </div>
-        <button className='btn btn-primary'>Submit</button>
+        <button className='button'>Submit</button>
 </Form>
 </div>)
 }
-
+const myStyle = {
+  margin: "40px 380px",
+};
 export const CreateEventAction = async({request})=>{
   try {
     console.log("WORKING")

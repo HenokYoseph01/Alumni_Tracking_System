@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Form, useActionData } from "react-router-dom";
 import Axios  from "axios";
-
+import '../components.css'
 export default function ReportGenerator() {
   const [selectedBatch, setSelectedBatch] = useState("");
   const [isReportGenerated, setIsReportGenerated] = useState(false);
@@ -29,7 +29,7 @@ export default function ReportGenerator() {
   //if(data && data.alert) setIsReportGenerated(true);
 
   return (
-    <div className="container my-3">
+    <div style={myStyle}>
       {isReportGenerated && (
         <div className="alert alert-success my-3" role="alert">
           Report generated successfully!
@@ -53,7 +53,7 @@ export default function ReportGenerator() {
           </select>
         </div>
         <button
-          className="btn btn-primary mt-4"
+          className="button"
           onClick={handleReportGeneration}>
           Generate Report
         </button>
@@ -63,7 +63,9 @@ export default function ReportGenerator() {
     </div>
   );
 };
-
+const myStyle = {
+  margin: "40px 380px",
+};
 export const ReportGeneratorAction = async({request})=>{
     try {
         const data = await request.formData();

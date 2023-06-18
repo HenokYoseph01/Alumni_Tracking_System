@@ -3,8 +3,10 @@
     --color-yellow: #f7931d; 
     --color-white: #ffffff;
     --color-black: #000000;
+    --color-grey:#454242;
   }
-  
+
+
 
 .header{
   display: flex;
@@ -47,4 +49,21 @@
     }
   }
 }
-
+.route{
+  text-decoration: none;
+  font-weight: 330;
+  background-color: inherit !important;
+  color: var(--color-grey);
+}
+.dropdown-item{
+  background-color: var(--color-white);
+  color: var(--color-black);
+}
+#profile{
+  background-color: inherit !important;
+  font-weight: 400;
+}
+.route:hover{
+  color: var(--color-black);
+  font-weight: 330;
+}

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Axios from "axios";
 import { useLoaderData, useNavigate } from 'react-router-dom';
-
+import '../components.css'
 const UpdateAlumniProfile = () => {
     //Get Loader data
     const dataLoad = useLoaderData();
@@ -55,7 +55,7 @@ const UpdateAlumniProfile = () => {
   };
 
   return (
-    <div className="container mt-3">
+    <div style={myStyle}>
     <form>
       <div className="form-group">
         <label htmlFor='firstName' className="form-label">First Name:</label>
@@ -227,12 +227,15 @@ const UpdateAlumniProfile = () => {
       </div>
     
       
-      <button className="btn btn-primary mt-3" onClick={handleSubmit}>Update</button>
+      <button className="button" onClick={handleSubmit}>Update</button>
     </form>
     
     </div>
     
   );
+};
+const myStyle = {
+  margin: "40px 380px",
 };
 
 export const updateProfileLoader = async()=>{
