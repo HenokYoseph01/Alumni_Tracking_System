@@ -42,7 +42,7 @@ export default function HeadAlumniSearch () {
   
 
   return (
-    <div>
+    <div style={myStyle}>
       <div className="input-group mb-3">
       <input type="text" className="form-control mt-3" placeholder="Search" aria-label="Search" aria-describedby="search-button" onChange={(e)=>setSearch(e.target.value)} />
       <button className="btn btn-outline-secondary mt-3" id="search-button" onClick={()=>setSearchTerm(search)}>Search</button>
@@ -97,7 +97,9 @@ export default function HeadAlumniSearch () {
     </div>
   );
 };
-
+const myStyle = {
+  margin: "40px 380px",
+};
 export const HeadAlumniSearchLoader = async()=>{
     try {
         const res = await Axios.get('https://alumni-track-system-kr9h.onrender.com/api/v1/head/alumni')

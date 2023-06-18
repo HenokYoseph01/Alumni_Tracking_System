@@ -22,7 +22,7 @@ export default function HeadLayout(){
                       Profile
                     </NavLink>
                 </NavDropdown.Item>
-                <NavDropdown.Item className="dropdown-item">
+                <NavDropdown.Item className="dropdown-item" href="/head/changePassword">
                   Change Password
                 </NavDropdown.Item>
               </NavDropdown>
