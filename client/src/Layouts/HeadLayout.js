@@ -23,9 +23,15 @@ export default function HeadLayout(){
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto">
-          <li className="nav-item">
-            <NavLink to="/head/profile" className="nav-link">Profile</NavLink>
-            </li>
+            <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Profile
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><NavLink to="/head/profile" className="dropdown-item">Profile</NavLink></li>
+            <li><NavLink to="/head/changePassword" className="dropdown-item">Change Password</NavLink></li>
+          </ul>
+        </li>
             <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Annocuncements

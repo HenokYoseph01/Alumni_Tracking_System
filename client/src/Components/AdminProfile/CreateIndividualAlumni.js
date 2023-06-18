@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Axios from 'axios'
+import '../components.css'
 import { useNavigate } from 'react-router-dom';
 function AlumniAccountCreation() {
   const [first_name, setFirstName] = useState('');
@@ -45,7 +46,7 @@ function AlumniAccountCreation() {
   };
 
   return (
-    <div className="container">
+    <div style={myStyle}>
     
       <h1>Create Alumni Account</h1>
       <form onSubmit={handleSubmit}>
@@ -92,7 +93,7 @@ function AlumniAccountCreation() {
           <label htmlFor="department" className="form-label">Department</label>
           <input type="text" className="form-control" id="department" value={department} onChange={(e) => setDepartment(e.target.value)} required />
         </div>
-        <button type="submit" className="btn btn-primary">Create Account</button>
+        <button type="submit" className="button">Create Account</button>
       </form>
       {showAlert && (
         <div className="alert alert-success mt-3" role="alert">
@@ -102,5 +103,7 @@ function AlumniAccountCreation() {
     </div>
   );
 }
-
+const myStyle = {
+  margin: "40px 380px",
+};
 export default AlumniAccountCreation;

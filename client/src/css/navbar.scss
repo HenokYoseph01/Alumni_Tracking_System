@@ -1,0 +1,50 @@
+:root{
+    --color-primary: #202f5b;
+    --color-yellow: #f7931d; 
+    --color-white: #ffffff;
+    --color-black: #000000;
+  }
+  
+
+.header{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  .brand{
+    display: flex;
+    padding: 20px 0px;
+    width: 100%;
+    background-color: var(--color-primary);
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+    h2{
+        align-items: center;
+        color: var(--color-white);
+        margin-top: 5px;
+        margin-left: 10px;
+    }
+    .aau-logo{
+      width: 50px;
+      height: 50px;
+      margin-right: 3px;
+    }
+    .sis-logo{
+        width: 50px;
+        height: 40px;
+        margin-top: 7px;
+        margin-left: 15px;
+      }
+  }
+  .navbar{
+    height: 20px;
+    justify-content: center;
+    background-color: var(--color-yellow);
+    .item{
+        margin-right: 60px;
+        margin-left: 60px;
+    }
+  }
+}
+

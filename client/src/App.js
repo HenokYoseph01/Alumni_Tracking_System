@@ -37,6 +37,10 @@ import ForumBan from './Components/AlumniProfile/ForumBan';
 import EditForum, { EditForumAction } from './Components/AlumniProfile/EditPost';
 import ViewPublicAnnouncement, { viewPublicAnnouncementLoader } from './Components/PublicView/PublicAnnouncement';
 import UpdateAlumniProfile, { updateProfileLoader } from './Components/AlumniProfile/UpdateProfile';
+import ChangePasswordForm from './Components/AlumniProfile/UpdatePassword';
+import UpdateHeadPassword from './Components/HeadProfile/UpdateHeadPassword';
+import UpdateAdminPassword from './Components/AdminProfile/UpdateAdminPassword';
+import EditAnnouncement, { EditAnnouncementAction } from './Components/HeadProfile/EditAnnouncement';
 
 
 
@@ -52,6 +56,7 @@ const router = createBrowserRouter(
     <Route path = 'alumnus' element={<AlumniLayout/>}>
         <Route path = 'profile' element={<AlumniProfile/>} loader={AlumniProfileLoder}/>
         <Route path = 'profile/update' element={<UpdateAlumniProfile/>} loader={updateProfileLoader}/>
+        <Route path = 'profile/password' element={<ChangePasswordForm/>}/>
         <Route path = 'announcement' element = {<Announcement/>} loader={announcementLoader}/>
         <Route path = 'forum' element = {<Forum/>} loader={forumLoader} errorElement={<ForumBan/>}/>
         <Route path = 'forum/me' element = {<AuthorForum/>} loader={authorForumLoader}/>
@@ -71,6 +76,8 @@ const router = createBrowserRouter(
       <Route path = 'alumnus' element={<HeadAlumniSearch/>} loader={HeadAlumniSearchLoader}/>
       <Route path = 'announcement' element={<CreateEvent/>} action={CreateEventAction}/>
       <Route path = 'announcement/view' element={<ViewAnnouncement/>} loader={viewAnnouncementLoader}/>
+      <Route path = 'announcement/edit/:id' element={<EditAnnouncement/>} action={EditAnnouncementAction}/>
+      <Route path = 'changePassword' element={<UpdateHeadPassword/>}/>
     </Route>
     {/* Head Layout */}
     
@@ -83,6 +90,7 @@ const router = createBrowserRouter(
       <Route path = 'create/admin' element={<AdminAccountCreation/>}/>
       <Route path = 'moderate' element={<Moderation/>} loader={ModerationLoader}/>
       <Route path = 'moderate/post/:id' element={<ViewPost/>} loader={ViewPostLoader}/>
+      <Route path = 'changePassword' element={<UpdateAdminPassword/>}/>
     </Route>
     </Route>
     

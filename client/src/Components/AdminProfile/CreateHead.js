@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Axios from 'axios'
+import '../components.css'
 function HeadOfSchoolForm() {
   const [first_name, setFirstName] = useState('');
   const [last_name, setLastName] = useState('');
@@ -33,8 +34,8 @@ function HeadOfSchoolForm() {
   };
 
   return (
-    <div className="container mt-4">
-      <h3>Create Head of School Account</h3>
+    <div style={myStyle}>
+      <h1>Create Head of School Account</h1>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="firstName">First Name:</label>
@@ -102,12 +103,14 @@ function HeadOfSchoolForm() {
             required
           />
         </div>
-        <button type="submit" className="btn btn-primary">
+        <button type="submit" className="button">
           Submit
         </button>
       </form>
     </div>
   );
 }
-
+const myStyle = {
+  margin: "40px 380px",
+};
 export default HeadOfSchoolForm;

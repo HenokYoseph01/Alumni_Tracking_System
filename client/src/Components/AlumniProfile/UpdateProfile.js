@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import Axios from "axios";
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 
 const UpdateAlumniProfile = () => {
     //Get Loader data
     const dataLoad = useLoaderData();
+    const navigate = useNavigate();
 
     //Set up needed states
     const [first_name,setFirstName] = useState(dataLoad.first_name);
@@ -27,11 +28,29 @@ const UpdateAlumniProfile = () => {
   const handleSubmit = async(e) => {
     e.preventDefault();
     // Perform update operation with the updated person object
+    console.log(place_of_work)
     if(image){
-        console.log('Image')
-    }else{
-        
+        const formdata = new FormData();
+        formdata.append('avatar',image)
+        await Axios.patch('https://alumni-track-system-kr9h.onrender.com/api/v1/alumni/profile/avatar',
+        formdata,{headers:{'Content-Type':'multipart/form-data'}})    
     }
+    await Axios.patch('https://alumni-track-system-kr9h.onrender.com/api/v1/alumni',{
+        first_name,
+        last_name,
+        grandfather_name,
+        email,
+        nationality,
+        phone_number: phone1,
+        phone_number_alt: phone2,
+        linkedIn,
+        city,
+        subcity,
+        region,
+        workname: place_of_work,
+        occupation
+    })
+    navigate('/alumnus/profile',{replace:true})
 
   };
 
@@ -44,7 +63,8 @@ const UpdateAlumniProfile = () => {
           type="text"
           className="form-control"
           name="firstName"
-          value={first_name}
+          defaultValue={first_name}
+          onChange = {(e)=>setFirstName(e.target.value)}
           
         />
       </div>
@@ -55,8 +75,9 @@ const UpdateAlumniProfile = () => {
           type="text"
           className="form-control"
           name="lastName"
-          value={last_name}
-          
+          defaultValue={last_name}
+          onChange = {(e)=>setLastName(e.target.value)}
+
         />
       </div>
 
@@ -66,8 +87,9 @@ const UpdateAlumniProfile = () => {
           type="text"
           className="form-control"
           name="grandfatherName"
-          value={grandfather_name}
-          
+          defaultValue={grandfather_name}
+          onChange = {(e)=>setGrandFatherName(e.target.value)}
+
         />
       </div>
 
@@ -77,8 +99,9 @@ const UpdateAlumniProfile = () => {
           type="text"
           className="form-control"
           name="email"
-          value={email}
-          
+          defaultValue={email}
+          onChange = {(e)=>setEmail(e.target.value)}
+
         />
       </div>
 
@@ -88,8 +111,9 @@ const UpdateAlumniProfile = () => {
           type="text"
           className="form-control"
           name="phoneNumber"
-          value={phone1}
-          
+          defaultValue={phone1}
+          onChange = {(e)=>setPhone1(e.target.value)}
+
         />
       </div>
 
@@ -99,8 +123,9 @@ const UpdateAlumniProfile = () => {
           type="text"
           className="form-control"
           name="phoneNumberAlt"
-          value={phone2}
-          
+          defaultValue={phone2}
+          onChange = {(e)=>setPhone2(e.target.value)}
+
         />
       </div>
 
@@ -110,8 +135,9 @@ const UpdateAlumniProfile = () => {
           type="text"
           className="form-control"
           name="linkedIn"
-          value={linkedIn}
-          
+          defaultValue={linkedIn}
+          onChange = {(e)=>setLinkedIn(e.target.value)}
+
         />
       </div>
 
@@ -121,7 +147,9 @@ const UpdateAlumniProfile = () => {
           type="text"
           className="form-control"
           name="nationalty"
-          value={nationality}
+          defaultValue={nationality}
+          onChange = {(e)=>setNationality(e.target.value)}
+
         />
       </div>
 
@@ -131,8 +159,9 @@ const UpdateAlumniProfile = () => {
           type="text"
           className="form-control"
           name="region"
-          value={region}
-          
+          defaultValue={region}
+          onChange = {(e)=>setRegion(e.target.value)}
+
         />
       </div>
 
@@ -142,8 +171,9 @@ const UpdateAlumniProfile = () => {
           type="text"
           className="form-control"
           name="city"
-          value={city}
-          
+          defaultValue={city}
+          onChange = {(e)=>setCity(e.target.value)}
+
         />
       </div>
 
@@ -153,8 +183,9 @@ const UpdateAlumniProfile = () => {
           type="text"
           className="form-control"
           name="subcity"
-          value={subcity}
-          
+          defaultValue={subcity}
+          onChange = {(e)=>setSubCity(e.target.value)}
+
         />
       </div>
 
@@ -164,7 +195,9 @@ const UpdateAlumniProfile = () => {
           type="text"
           className="form-control"
           name="occupation"
-          value={occupation}
+          defaultValue={occupation}
+          onChange = {(e)=>setOccupation(e.target.value)}
+
         />
       </div>
 
@@ -174,14 +207,15 @@ const UpdateAlumniProfile = () => {
           type="text"
           className="form-control"
           name="workplace"
-          value={place_of_work}
-          
+          defaultValue={place_of_work}
+          onChange = {(e)=>setPlaceOfWork(e.target.value)}
+
         />
         
       </div>
 
       <div className="form-group mt-2">
-        <label htmlFor='image' className="form-label">Picture:</label>
+        <label htmlFor='image' className="form-label">Image:</label>
         <input
           type="file"
           className="form-control"
