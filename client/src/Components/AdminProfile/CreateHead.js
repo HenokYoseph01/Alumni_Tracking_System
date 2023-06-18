@@ -8,6 +8,8 @@ function HeadOfSchoolForm() {
   const [phone_number, setPhoneNumber] = useState('');
   const [email, setEmail] = useState('');
   const [department, setDepartment] = useState('');
+  const [showAlert, setShowAlert] = useState(false);
+
 
   const handleSubmit = async(event) => {
     event.preventDefault();
@@ -20,7 +22,10 @@ function HeadOfSchoolForm() {
             email,
             department
         })
-        alert('Head of School account created successfully!');
+        setShowAlert(true);
+        setTimeout(() => {
+          setShowAlert(false);
+        }, 3000);
         setFirstName('')
         setLastName('')
         setGrandfatherName('')
@@ -38,7 +43,7 @@ function HeadOfSchoolForm() {
       <h1>Create Head of School Account</h1>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label htmlFor="firstName">First Name:</label>
+          <label htmlFor="firstName" className="form-label">First Name:</label>
           <input
             type="text"
             className="form-control"
@@ -49,7 +54,7 @@ function HeadOfSchoolForm() {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="lastName">Last Name:</label>
+          <label htmlFor="lastName" className="form-label mt-2">Last Name:</label>
           <input
             type="text"
             className="form-control"
@@ -60,7 +65,7 @@ function HeadOfSchoolForm() {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="grandfatherName">Grandfather Name:</label>
+          <label htmlFor="grandfatherName" className="form-label mt-2">Grandfather Name:</label>
           <input
             type="text"
             className="form-control"
@@ -71,7 +76,7 @@ function HeadOfSchoolForm() {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="phoneNumber">Phone Number:</label>
+          <label htmlFor="phoneNumber" className="form-label mt-2">Phone Number:</label>
           <input
             type="text"
             className="form-control"
@@ -82,7 +87,7 @@ function HeadOfSchoolForm() {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="email">Email:</label>
+          <label htmlFor="email" className="form-label mt-2">Email:</label>
           <input
             type="email"
             className="form-control"
@@ -93,7 +98,7 @@ function HeadOfSchoolForm() {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="department">Department:</label>
+          <label htmlFor="department" className="form-label mt-2">Department:</label>
           <input
             type="text"
             className="form-control"
@@ -107,6 +112,11 @@ function HeadOfSchoolForm() {
           Submit
         </button>
       </form>
+      {showAlert && (
+        <div className="alert alert-success mt-3" role="alert">
+          Account has been successfully created and sent.
+        </div>
+      )}
     </div>
   );
 }

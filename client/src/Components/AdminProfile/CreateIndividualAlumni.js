@@ -83,7 +83,7 @@ function AlumniAccountCreation() {
         </div>
         <div className="mb-3">
           <label htmlFor="gpa" className="form-label">GPA</label>
-          <input type="number" className="form-control" id="gpa" value={gpa} onChange={(e) => setGpa(e.target.value)} required />
+          <input type="number" className="form-control" id="gpa" min={1} max={4} value={gpa} onChange={(e) => setGpa(e.target.value)} required />
         </div>
         <div className="mb-3">
           <label htmlFor="graduate" className="form-label">Year of Graduation</label>

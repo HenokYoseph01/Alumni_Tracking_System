@@ -48,7 +48,7 @@ function MinimalView() {
                 <MDBListGroup flush className="rounded-3">
                   <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
                     <MDBIcon fab icon="linkedin fa-lg" style={{ color: '#333333' }} />
-                    <a href={data.linkedin} style={{textDecoration:"none",color:'black'}}>LinkedIn</a>
+                    <a href={data.linkedin} target="_blank" style={{textDecoration:"none",color:'black'}}>LinkedIn</a>
                   </MDBListGroupItem>
                 </MDBListGroup>
               </MDBCardBody>
