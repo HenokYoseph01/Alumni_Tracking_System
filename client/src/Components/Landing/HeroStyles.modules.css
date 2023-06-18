@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+body{
+    overflow-x: none;
+}
+.hero{
+    width: 100%;
+    height:70vh;
+    position: relative;
+
+}
+img{
+    width: 100%;
+    height:100%;
+    object-fit: cover;
+}
+
+.hero-text{
+    position:absolute;
+    top:40%;
+    left:5%;
+}
+.hero-text h1{
+    font-size: 3rem;
+    font-weight:800;
+    color:#fff;
+}
+
+.hero-text p{
+    color:#fff;
+       font-size: 1.3rem;
+       padding: 0.5rem 0 2rem 0;
+
+}
+.p1{
+    color: #003153;
+       font-size: 1.5rem;
+       padding: 0 0 0 2rem;
+       
+
+}
+.second{
+    margin: 50px 0 0 0;
+    background: linear-gradient(to right, #a6e7ff,#ffdead );
+    border-radius: 50px;
+    padding-bottom: -5px;
+    
+    
+}
+.p2{
+    color:  #ff4f00;
+       font-size: 1.5rem;
+       padding: 0 2rem 0 0;
+
+}
+.vertical{
+     height: 3rem;
+    border-left: 2px solid black;
+    color: #fff;
+    vertical-align: middle;
+     margin: 0 10px;
+    display: inline-block;
+}
+@media screen and ( max-width:555px) {
+    .hero-text h1{padding:10px 20px}
+    .hero-text p{font-size: 1.1rem;
+    padding:0 0 2rem 0
+}
+.content{
+     width: 100%;
+     overflow-x: none;
+     
+}
+
+
+
+
+
+}
