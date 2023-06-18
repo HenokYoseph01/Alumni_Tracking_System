@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Axios from "axios";
 import { useNavigate } from 'react-router-dom';
-
+import '../components.css'
 
 const UpdateHeadPassword = () => {
   //Get navigation route
@@ -89,7 +89,7 @@ const UpdateHeadPassword = () => {
                 {errorMessage && <div className="alert alert-danger">{errorMessage}</div>}
                 {successMessage && <div className="success alert-success">{successMessage}</div>}
 
-                <button className="btn btn-primary btn-block mt-3" type="submit">
+                <button className="button" style={{marginLeft:'100px', width:'300px'}} type="submit">
                   Change Password
                 </button>
               </form>

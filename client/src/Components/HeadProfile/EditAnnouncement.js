@@ -1,5 +1,6 @@
 import { Form, redirect, useLocation, useNavigate, useParams } from "react-router-dom"
 import Axios from "axios"
+import '../components.css'
 export default function EditAnnouncement(){
     const location = useLocation();
     const {id} = useParams()
@@ -132,7 +133,7 @@ export default function EditAnnouncement(){
               </select>
             </div>
             
-            <button className='btn btn-primary'>Submit</button>
+            <button className='button'>Submit</button>
     </Form>
     </div>)
 }
