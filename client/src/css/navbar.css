@@ -3,6 +3,7 @@
   --color-yellow: #f7931d;
   --color-white: #ffffff;
   --color-black: #000000;
+  --color-grey:#454242;
 }
 
 .header {
@@ -46,16 +47,26 @@
 .header .navbar .item {
   margin-right: 60px;
   margin-left: 60px;
-}/*# sourceMappingURL=navbar.css.map */
+}
 
-.route{
+.route {
   text-decoration: none;
-  color: black;
-  font-weight: 300 ;
+  font-weight: 330;
+  background-color: inherit !important;
+  color: var(--color-grey);
 }
 
-.route:hover{
-  color:black;
-  font-weight: 330 ;
-
+.dropdown-item {
+  background-color: var(--color-white);
+  color: var(--color-black);
 }
+
+#profile {
+  background-color: inherit !important;
+  font-weight: 400;
+}
+
+.route:hover {
+  color: var(--color-black);
+  font-weight: 330;
+}/*# sourceMappingURL=navbar.css.map */

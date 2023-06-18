@@ -54,4 +54,10 @@
 }
 .nav .white {
   color: var(--color-yellow) !important;
+}
+
+.profile-cont {
+  display: flex !important;
+  flex-direction: column !important;
+  margin-top: 15px;
 }/*# sourceMappingURL=components.css.map */

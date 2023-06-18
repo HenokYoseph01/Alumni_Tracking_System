@@ -20,33 +20,28 @@ import {
 } from 'mdb-react-ui-kit';
 import Axios from 'axios';
 import { NavLink, useLoaderData } from 'react-router-dom';
-
+import '../components.css'
 function ProfilePage() {
   const data = useLoaderData();
   return (
     <section style={myStyle}>
-      <MDBContainer className="py-5">
-        <MDBRow>
+      <MDBContainer className="profile-cont">
+         <MDBRow>
           <MDBCol>
-          </MDBCol>
-        </MDBRow>
-
-        <MDBRow>
-          <MDBCol lg="4">
-            <MDBCard className="mb-4">
+            <MDBCard className="mb-2">
               <MDBCardBody className="text-center">
                 <MDBCardImage
                   src={data.photo_url}
                   alt="avatar"
                   className="rounded-circle"
-                  style={{ width: '150px' }}
+                  style={{width: '150px' }}
                   fluid />
                 <p className="text-muted mb-1">{data.occupation}</p>
                 <p className="text-muted mb-4">{data.place_of_work}</p>
               </MDBCardBody>
             </MDBCard>
           </MDBCol>
-          <MDBCol lg="8">
+          <MDBCol lg="15">
             <MDBCard className="mb-4">
               <MDBCardBody>
                 <MDBRow>
@@ -102,7 +97,7 @@ function ProfilePage() {
                     <MDBCardText className="text-muted">{data.date_of_graduation}</MDBCardText>
                   </MDBCol>
                 </MDBRow>
-                <hr />
+                
               </MDBCardBody>
             </MDBCard>
 
