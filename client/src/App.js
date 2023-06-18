@@ -59,9 +59,9 @@ const router = createBrowserRouter(
         <Route path = 'profile/password' element={<ChangePasswordForm/>}/>
         <Route path = 'announcement' element = {<Announcement/>} loader={announcementLoader}/>
         <Route path = 'forum' element = {<Forum/>} loader={forumLoader} errorElement={<ForumBan/>}/>
-        <Route path = 'forum/me' element = {<AuthorForum/>} loader={authorForumLoader}/>
+        <Route path = 'forum/me' element = {<AuthorForum/>} loader={authorForumLoader} errorElement={<ForumBan/>}/>
         <Route path = 'forum/me/edit' element = {<EditForum/>}/>
-        <Route path = 'forum/create' element = {<PostForum/>} action={PostForumAction}/>
+        <Route path = 'forum/create' element = {<PostForum/>} loader={authorForumLoader} action={PostForumAction} errorElement={<ForumBan/>}/>
         <Route path = 'forum/author/:id' element = {<MinimalView/>} loader={MinimalViewLoader}/>
         <Route path = 'forum/:id' element = {<Replies/>} loader={RepliesLoader} />
         <Route path = 'replies/:id' element={<PostReply/>} action={PostReplyAction}/>

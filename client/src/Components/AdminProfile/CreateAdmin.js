@@ -39,7 +39,7 @@ export default function AdminAccountCreation() {
 
   return (
     <div style={myStyle}>
-      <h3>Admin Account Creation</h3>
+      <h1>Admin Account Creation</h1>
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="firstName" className="form-label">First Name</label>

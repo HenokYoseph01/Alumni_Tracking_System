@@ -1,7 +1,9 @@
 import { Form, redirect } from "react-router-dom";
 import Axios from 'axios'
+import { useEffect } from "react";
 
 export default function PostForum(){
+
 
     return (
         <div className="container">
@@ -55,3 +57,4 @@ export const PostForumAction = async({request})=>{
         console.log(error)
     }
 }
+

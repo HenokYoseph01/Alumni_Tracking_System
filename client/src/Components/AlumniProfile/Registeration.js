@@ -4,7 +4,7 @@ import Axios from "axios";
 
 export default function RegistrationForm() {
     const navigate = useNavigate();
-    const dataLoad = useLoaderData();
+    const dataLoad = useLoaderData(); 
     //States
     const [first_name,setFirstName] = useState(dataLoad.first_name);
     const [last_name,setLastName] = useState(dataLoad.last_name);
@@ -24,6 +24,7 @@ export default function RegistrationForm() {
     const [image,setImage] = useState('');
     const [linkedIn,setLinkedIn] = useState('');
     const [clicked, setClicked] = useState(false)
+    const [valid, setValid] = useState(false)
 
     //Photo Uploader function
     const uploadPhoto = async()=>{
@@ -61,6 +62,16 @@ export default function RegistrationForm() {
         
     }
 
+    const validate = ()=>{
+      if(first_name&&last_name&&grandfather_name&&email&&nationality
+        &&phone1&&phone2&&region&&city&&subcity&&wereda&&kebele&&house_no&&place_of_work&&occupation
+        &&image&&linkedIn){
+          setValid(true)
+        }else{
+          setValid(false)
+        }
+    }
+
     if(clicked){
         uploadPhoto();
     }
@@ -75,91 +86,107 @@ export default function RegistrationForm() {
             <div className="row">
               <div className="col-md-4 mb-3">
                 <label htmlFor="firstName">First Name</label>
-                <input type="text" className="form-control" id="firstName" defaultValue={dataLoad.first_name} onChange={(e)=>setFirstName(e.target.value)} name="first_name"/>
+                <input type="text" className="form-control" id="firstName" defaultValue={dataLoad.first_name} onChange={(e)=>{setFirstName(e.target.value); validate()}} name="first_name" 
+                style={{borderColor:`${first_name?'black':'red'}`}} required/>
               </div>
               <div className="col-md-4 mb-3">
                 <label htmlFor="lastName">Last Name</label>
-                <input type="text" className="form-control" id="lastName" defaultValue={dataLoad.last_name} onChange={(e)=>setLastName(e.target.value)} name="last_name" />
+                <input type="text" className="form-control" id="lastName" defaultValue={dataLoad.last_name} onChange={(e)=>{setLastName(e.target.value); validate()}} name="last_name"
+                style={{borderColor:`${last_name?'black':'red'}`}} />
               </div>
               <div className="col-md-4 mb-3">
                 <label htmlFor="grandFatherName">Grandfather Name</label>
-                <input type="text" className="form-control" id="grandFatherName" defaultValue={dataLoad.grandfather_name} onChange={(e)=>setGrandFatherName(e.target.value)} name="grandfather_name" />
+                <input type="text" className="form-control" id="grandFatherName" defaultValue={dataLoad.grandfather_name} onChange={(e)=>{setGrandFatherName(e.target.value); validate()}} name="grandfather_name" 
+                style={{borderColor:`${grandfather_name?'black':'red'}`}}/>
               </div>
             </div>
 
             <div className="mb-3">
               <label htmlFor="nationality">Nationality</label>
-              <input type="text" className="form-control" id="nationality" value= {nationality} onChange={(e)=>{setNationality(e.target.value)}} name="nationality"/>
+              <input type="text" className="form-control" id="nationality" value= {nationality} onChange={(e)=>{{setNationality(e.target.value); validate()}}} name="nationality"
+              style={{borderColor:`${nationality?'black':'red'}`}}/>
             </div>
 
             <div className="row">
               <div className="col-md-6 mb-3">
                 <label htmlFor="email">Email</label>
-                <input type="email" className="form-control" id="email" defaultValue={dataLoad.email} onChange={(e)=>setEmail(e.target.value)} name="email" />
+                <input type="email" className="form-control" id="email" defaultValue={dataLoad.email} onChange={(e)=>{setEmail(e.target.value); validate()}} name="email"
+                style={{borderColor:`${email?'black':'red'}`}} />
               </div>
               <div className="col-md-6 mb-3">
                 <label htmlFor="phone1">Phone Number 1</label>
-                <input type="text" className="form-control" id="phone1" onChange={(e)=>setPhone1(e.target.value)} name="phone1" />
+                <input type="text" className="form-control" id="phone1" onChange={(e)=>{setPhone1(e.target.value); validate()}} name="phone1"
+                style={{borderColor:`${phone1?'black':'red'}`}} />
               </div>
             </div>
 
             <div className="row">
               <div className="col-md-6 mb-3">
                 <label htmlFor="phone2">Phone Number 2</label>
-                <input type="text" className="form-control" id="phone2" onChange={(e)=>setPhone2(e.target.value)} name="phone2" />
+                <input type="text" className="form-control" id="phone2" onChange={(e)=>{setPhone2(e.target.value); validate()}} name="phone2"
+                style={{borderColor:`${phone2?'black':'red'}`}} />
               </div>
               <div className="col-md-6 mb-3">
                 <label htmlFor="region">Region</label>
-                <input type="text" className="form-control" id="region" onChange={(e)=>setRegion(e.target.value)} name="region" />
+                <input type="text" className="form-control" id="region" onChange={(e)=>{setRegion(e.target.value); validate()}} name="region"
+                style={{borderColor:`${region?'black':'red'}`}} />
               </div>
             </div>
 
             <div className="row">
               <div className="col-md-6 mb-3">
                 <label htmlFor="kebele">Kebele</label>
-                <input type="text" className="form-control" id="kebele" onChange={(e)=>setKebele(e.target.value)} name="kebele" />
+                <input type="text" className="form-control" id="kebele" onChange={(e)=>{setKebele(e.target.value); validate()}} name="kebele" 
+                style={{borderColor:`${kebele?'black':'red'}`}}/>
               </div>
               <div className="col-md-6 mb-3">
                 <label htmlFor="city">City</label>
-                <input type="text" className="form-control" id="city" onChange={(e)=>setCity(e.target.value)} name="city" />
+                <input type="text" className="form-control" id="city" onChange={(e)=>{setCity(e.target.value); validate()}} name="city"
+                style={{borderColor:`${city?'black':'red'}`}} />
               </div>
             </div>
 
             <div className="row">
               <div className="col-md-6 mb-3">
                 <label htmlFor="subcity">Subcity/Zone</label>
-                <input type="text" className="form-control" id="subcity" onChange={(e)=>setSubCity(e.target.value)} name="subcity" />
+                <input type="text" className="form-control" id="subcity" onChange={(e)=>{setSubCity(e.target.value); validate()}} name="subcity"
+                style={{borderColor:`${subcity?'black':'red'}`}} />
               </div>
               <div className="col-md-6 mb-3">
                 <label htmlFor="wereda">Wereda</label>
-                <input type="text" className="form-control" id="wereda" onChange={(e)=>setWereda(e.target.value)} name="wereda" />
+                <input type="text" className="form-control" id="wereda" onChange={(e)=>{setWereda(e.target.value); validate()}} name="wereda" 
+                style={{borderColor:`${wereda?'black':'red'}`}}/>
               </div>
             </div>
 
             <div className="row">
               <div className="col-md-6 mb-3">
                 <label htmlFor="houseNumber">House Number</label>
-                <input type="text" className="form-control" id="houseNumber" onChange={(e)=>setHouseNo(e.target.value)} name="houseNo" />
+                <input type="text" className="form-control" id="houseNumber" onChange={(e)=>{setHouseNo(e.target.value); validate()}} name="houseNo"
+                style={{borderColor:`${house_no?'black':'red'}`}} />
               </div>
               <div className="col-md-6 mb-3">
                 <label htmlFor="placeOfWork">Place of Work</label>
-                <input type="text" className="form-control" id="placeOfWork" onChange={(e)=>setPlaceOfWork(e.target.value)} name="placeOfWork"/>
+                <input type="text" className="form-control" id="placeOfWork" onChange={(e)=>{setPlaceOfWork(e.target.value); validate()}} name="placeOfWork"
+                style={{borderColor:`${place_of_work?'black':'red'}`}}/>
               </div>
             </div>
             <div className="row">
               <div className="col-md-6 mb-3">
                 <label htmlFor="occupation">Occupation</label>
-                <input type="text" className="form-control" id="occupation" onChange={(e)=>setOccupation(e.target.value)} name = "occupation" />
+                <input type="text" className="form-control" id="occupation" onChange={(e)=>{setOccupation(e.target.value); validate()}} name = "occupation"
+                style={{borderColor:`${occupation?'black':'red'}`}} />
               </div>
               <div className="col-md-6 mb-3">
                 <label htmlFor="image">Image</label>
-                <input type="file" className="form-control" id="image" onChange={(e)=>setImage(e.target.files[0])} name = "image"/>
+                <input type="file" className="form-control" id="image" onChange={(e)=>{setImage(e.target.files[0]); validate()}} name = "image"
+                style={{borderColor:`${image?'black':'red'}`}}/>
               </div>
               <div className="col-md-6 mb-3">
                 <label htmlFor="linkedIn">linkedIn</label>
-                <input type="text" className="form-control" id="linkedIn" onChange={(e)=>setLinkedIn(e.target.value)} name = "linkedIn" />
+                <input type="text" className="form-control" id="linkedIn" onChange={(e)=>{setLinkedIn(e.target.value); validate()}} name = "linkedIn" />
               </div>
-              <button className="btn btn-sm btn-primary" onClick={()=>setClicked(true)}>Next</button>
+              <button className="btn btn-sm btn-primary" disabled = {valid===false} onClick={()=>setClicked(true)}>Next</button>
             </div>
         </div>
         </div>

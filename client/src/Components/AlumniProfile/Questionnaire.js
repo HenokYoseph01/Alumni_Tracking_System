@@ -10,6 +10,15 @@ export default function Questionnaire() {
     const [salary,setSalary] = useState('')
     const [satisfaction,setSatisfaction] = useState('')
     const [attainment,setAttainment] = useState('')
+    const [valid,setValid] = useState(false)
+
+    const validate = ()=>{
+      if(category_of_work&&salary&&satisfaction&&attainment){
+          setValid(true)
+        }else{
+          setValid(false)
+        }
+    }
 
     //Post data
     const submitData = async(e)=>{
@@ -53,7 +62,7 @@ export default function Questionnaire() {
             <div className="row">
               <div className="col mb-3">
                 <label htmlFor="question1">Would you categorize your occupation as your graduating department based?(Networking, Web Dev, AI, etc.)</label>
-                <select type="text" className="form-control" id="question1" value={category_of_work} onChange={(e)=>setCategory(e.target.value)}>
+                <select type="text" className="form-control" id="question1" value={category_of_work} onChange={(e)=>{setCategory(e.target.value); validate()}} style={{borderColor:`${category_of_work?'black':'red'}`}}>
                 <option selected>Choose</option>
                 <option value="tech">Yes</option>
                 <option value="non-tech">No</option>
@@ -61,25 +70,26 @@ export default function Questionnaire() {
               </div>
             <div className="row">
               <div className="col mb-3">
-                <label htmlFor="salary">Salary</label>
-                <input type="number" className="form-control" id="salary" value={salary} onChange={(e)=>setSalary(e.target.value)} />
-              </div>
-            <div className="row">
-              <div className="col mb-3">
                 <label htmlFor="satisifaction">How satisfied are you with your current job(rate out of 5)?</label>
-                <input type="number" className="form-control" id="satisfaction" value={satisfaction} min={1} max={5} onChange={(e)=>setSatisfaction(e.target.value)} />
+                <input type="number" className="form-control" id="satisfaction" value={satisfaction} min={1} max={5} onChange={(e)=>{setSatisfaction(e.target.value); validate()}} style={{borderColor:`${satisfaction?'black':'red'}`}} />
               </div>
             <div className="row">
               <div className="col mb-3">
                 <label htmlFor="attain">Would you say the university helped you attain your current job?</label>
-                <select className="form-control" id="attain" value={attainment} onChange={(e)=>setAttainment(e.target.value)} >
+                <select className="form-control" id="attain" value={attainment} onChange={(e)=>{setAttainment(e.target.value); validate()}} style={{borderColor:`${attainment?'black':'red'}`}} >
                     <option selected>Choose</option>
                     <option value="yes">Yes</option>
                     <option value="no">No</option>
                 </select>
               </div>
+              <div className="row">
+              <div className="col mb-3">
+                <label htmlFor="salary">Salary</label>
+                <input type="number" className="form-control" id="salary" value={salary} onChange={(e)=>{setSalary(e.target.value); validate()}}
+                style={{borderColor:`${salary?'black':'red'}`}} />
+              </div>
               
-              <button className="btn btn-sm btn-primary" onClick={submitData}>Submit</button>
+              <button className="btn btn-sm btn-primary" disabled={valid===false} onClick={submitData}>Submit</button>
             </div>
             </div>
             </div>

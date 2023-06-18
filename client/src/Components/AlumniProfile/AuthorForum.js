@@ -68,6 +68,6 @@ export const authorForumLoader = async()=>{
         const res = await Axios.get('https://alumni-track-system-kr9h.onrender.com/api/v1/alumni/forum/me')
         return res.data.data.forums;
     } catch (error) {
-        console.log(error.response)
+        throw Error(error.message)
     }
 }

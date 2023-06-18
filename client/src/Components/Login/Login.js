@@ -18,7 +18,6 @@ function Login() {
     e.preventDefault();
 
     try {    
-      console.log(email,password)
       const res = await Axios.post('https://alumni-track-system-kr9h.onrender.com/api/v1/login',{
         email,
         password
@@ -45,6 +44,8 @@ function Login() {
   
       } catch (error) {
         setError(true);
+        setEmail('');
+        setPassword('');
       }
   };
 
@@ -70,7 +71,7 @@ function Login() {
                     className={`form-control ${error ? 'is-invalid' : ''}`}
                     id="email"
                     value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    onChange={(e) => {setEmail(e.target.value); setError(false)}}
                   />
                 </div>
                 <div className={`form-group ${error ? 'has-error' : ''}`}>
