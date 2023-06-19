@@ -64,7 +64,7 @@ export default function RegistrationForm() {
 
     const validate = ()=>{
       if(first_name&&last_name&&grandfather_name&&email&&nationality
-        &&phone1&&phone2&&region&&city&&subcity&&wereda&&kebele&&house_no&&place_of_work&&occupation
+        &&phone1&&region&&city&&subcity&&wereda&&kebele&&house_no&&place_of_work&&occupation
         &&image&&linkedIn){
           setValid(true)
         }else{
@@ -123,8 +123,8 @@ export default function RegistrationForm() {
             <div className="row">
               <div className="col-md-6 mb-3">
                 <label htmlFor="phone2">Phone Number 2</label>
-                <input type="text" className="form-control" id="phone2" onChange={(e)=>{setPhone2(e.target.value); validate()}} name="phone2"
-                style={{borderColor:`${phone2?'black':'red'}`}} />
+                <input type="text" className="form-control" id="phone2" onChange={(e)=>{setPhone2(e.target.value);}} name="phone2"
+                 />
               </div>
               <div className="col-md-6 mb-3">
                 <label htmlFor="region">Region</label>
@@ -184,7 +184,8 @@ export default function RegistrationForm() {
               </div>
               <div className="col-md-6 mb-3">
                 <label htmlFor="linkedIn">linkedIn</label>
-                <input type="text" className="form-control" id="linkedIn" onChange={(e)=>{setLinkedIn(e.target.value); validate()}} name = "linkedIn" />
+                <input type="text" className="form-control" id="linkedIn" onChange={(e)=>{setLinkedIn(e.target.value); validate()}} name = "linkedIn" 
+                 style={{borderColor:`${linkedIn?'black':'red'}`}}/>
               </div>
               <button className="btn btn-sm btn-primary" disabled = {valid===false} onClick={()=>setClicked(true)}>Next</button>
             </div>
