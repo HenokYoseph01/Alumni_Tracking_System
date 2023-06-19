@@ -71,7 +71,7 @@ export default function Questionnaire() {
             <div className="row">
               <div className="col mb-3">
                 <label htmlFor="satisifaction">How satisfied are you with your current job(rate out of 5)?</label>
-                <input type="number" className="form-control" id="satisfaction" value={satisfaction} min={1} max={5} onChange={(e)=>{setSatisfaction(e.target.value); validate()}} style={{borderColor:`${satisfaction?'black':'red'}`}} />
+                <input type="number" className="form-control" id="satisfaction" readonly value={satisfaction} min={1} max={5} onChange={(e)=>{setSatisfaction(e.target.value); validate()}} style={{borderColor:`${satisfaction?'black':'red'}`}} />
               </div>
             <div className="row">
               <div className="col mb-3">
