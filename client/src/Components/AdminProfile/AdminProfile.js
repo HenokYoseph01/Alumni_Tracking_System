@@ -30,7 +30,7 @@ function AdminProfile() {
         <MDBRow>
           <MDBCol>
             <MDBBreadcrumb className="nav rounded-3 p-3 mb-4">
-              <MDBBreadcrumbItem className='bc_item white' active>User Profile</MDBBreadcrumbItem>
+              <MDBBreadcrumbItem className='bc_item white' active>Admin Profile</MDBBreadcrumbItem>
             </MDBBreadcrumb>
           </MDBCol>
         </MDBRow>

@@ -1,7 +1,7 @@
 import Axios from 'axios'
 import { useEffect, useState } from 'react'
 import {Form, useActionData} from 'react-router-dom'
-
+import '../components.css'
 
 export default function Alumni(){
     
@@ -23,7 +23,7 @@ export default function Alumni(){
                     <option value="2021">2021</option>
                   </select>
                 </div>
-                <button className="btn btn-primary mt-3">Submit</button>
+                <button className="button">Submit</button>
             </div>
           </div>
         </div>

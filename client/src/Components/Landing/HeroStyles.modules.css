@@ -1,4 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+:root{
+    --color-primary: #202f5b;
+    --color-yellow: #f7931d;
+    --color-white:#fff; 
+}
 body{
     overflow-x: none;
 }
@@ -11,21 +16,25 @@ body{
 img{
     width: 100%;
     height:100%;
-    object-fit: cover;
 }
-
-.hero-text{
+#landing-img{
+    height: 720px;
+}
+.welcome-text{
     position:absolute;
     top:40%;
     left:5%;
 }
-.hero-text h1{
+.welcome-text h1{
     font-size: 3rem;
     font-weight:800;
     color:#fff;
 }
-
-.hero-text p{
+#join-us{
+    font-size: 200px;
+    margin-top: 50px
+}
+.welcome-text p{
     color:#fff;
        font-size: 1.3rem;
        padding: 0.5rem 0 2rem 0;
@@ -40,14 +49,14 @@ img{
 }
 .second{
     margin: 50px 0 0 0;
-    background: linear-gradient(to right, #a6e7ff,#ffdead );
+    background: linear-gradient(to right, var(--color-white),var(--color-yellow) );
     border-radius: 50px;
     padding-bottom: -5px;
     
     
 }
 .p2{
-    color:  #ff4f00;
+    color:  var(--color-primary);
        font-size: 1.5rem;
        padding: 0 2rem 0 0;
 
@@ -68,7 +77,6 @@ img{
 .content{
      width: 100%;
      overflow-x: none;
-     
 }
 
 

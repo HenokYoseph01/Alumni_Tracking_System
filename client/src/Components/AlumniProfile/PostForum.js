@@ -1,12 +1,12 @@
 import { Form, redirect } from "react-router-dom";
 import Axios from 'axios'
 import { useEffect } from "react";
-
+import '../components.css'
 export default function PostForum(){
 
 
     return (
-        <div className="container">
+        <div style={myStyle}>
         <h2>Create a Post</h2>
         <Form method="post" action='/alumnus/forum/create'>
           <div className="mb-3">
@@ -35,14 +35,16 @@ export default function PostForum(){
               name = "description"
             ></textarea>
           </div>
-          <button className="btn btn-primary">
+          <button className="button">
             Submit
           </button>
         </Form>
       </div>
     );
 }
-
+const myStyle = {
+  margin: "40px 380px",
+};
 export const PostForumAction = async({request})=>{
     try {
         const data = await request.formData();

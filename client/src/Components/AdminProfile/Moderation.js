@@ -35,7 +35,7 @@ function Moderation() {
   };
 
   return (
-    <div className="container">
+    <div style={myStyle}>
       <h2>Reported Forums</h2>
       <table className="table">
         <thead>
@@ -92,7 +92,10 @@ function Moderation() {
     </div>
   );
 }
-
+const myStyle = {
+  margin: "40px 350px",
+  width:''
+};
 export default Moderation
 
 export const ModerationLoader = async()=>{
