@@ -20,18 +20,25 @@ import {
 } from 'mdb-react-ui-kit';
 import Axios from 'axios';
 import { useLoaderData } from 'react-router-dom';
-
+import '../components.css'
 function HeadProfilePage() {
   const data = useLoaderData();
   return (
-    <section style={{ backgroundColor: '#f8f9fa' }}>
-      <MDBContainer className="py-5">
+    <section style={myStyle}>
+     <MDBRow>
+          <MDBCol>
+            <MDBBreadcrumb className="nav rounded-3 p-3 mb-4">
+              <MDBBreadcrumbItem className='bc_item white' active>Head Profile</MDBBreadcrumbItem>
+            </MDBBreadcrumb>
+          </MDBCol>
+        </MDBRow>
+      <MDBContainer style={{marginTop:'10px'}}>
         <MDBRow>
-          <MDBCol lg="8" className="mx-auto">
-            <MDBCard className="shadow-sm mb-4">
+          <MDBCol >
+            <MDBCard >
               <MDBCardBody>
-                <MDBRow className="mb-4">
-                  <MDBCol sm="3">
+                <MDBRow>
+                  <MDBCol >
                     <h5 className="mb-0">Full Name</h5>
                   </MDBCol>
                   <MDBCol sm="9">
@@ -65,7 +72,6 @@ function HeadProfilePage() {
                     <p className="text-muted mb-0">{data.department}</p>
                   </MDBCol>
                 </MDBRow>
-                <hr />
               </MDBCardBody>
             </MDBCard>
           </MDBCol>
@@ -84,5 +90,7 @@ export const HeadProfileLoader = async()=>{
     console.log(error.response)
   }
 }
-
+const myStyle = {
+  margin: "80px 380px",
+};
 export default HeadProfilePage

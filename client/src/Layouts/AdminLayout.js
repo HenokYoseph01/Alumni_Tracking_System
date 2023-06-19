@@ -17,9 +17,11 @@ export default function AdminLayout(){
         </div>
         <Navbar class="navbar">
           <Nav id="navbar-nav">
-            <NavDropdown title="Profile" id="profile-dropdown" className="item">
-              <NavDropdown.Item href="/admin/profile" className="dropdown-item">
-                Profile
+            <NavDropdown title="Profile" className="item">
+              <NavDropdown.Item className="dropdown-item">
+              <Nav.Link>
+              <NavLink to="/admin/profile" style={{fontWeight:'450', marginLeft:'-7px'}} className="route">Profile</NavLink>
+            </Nav.Link>
               </NavDropdown.Item>
               <NavDropdown.Item
                 href="/admin/changePassword"

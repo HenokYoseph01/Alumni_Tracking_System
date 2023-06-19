@@ -1,29 +1,31 @@
-import React, { useEffect, useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
-import Axios from 'axios'
+import React, { useEffect, useState } from "react";
+import { useLoaderData } from "react-router-dom";
+import Axios from "axios";
+import "../components.css";
+export default function HeadAlumniSearch() {
+  const data = useLoaderData();
 
-export default function HeadAlumniSearch () {
-    const data = useLoaderData();
+  const PAGE_SIZE = 3;
 
-    const PAGE_SIZE = 3
-      
   const [currentPage, setCurrentPage] = useState(1);
-  const [search, setSearch] = useState('')
-  const [searchTerm,setSearchTerm] = useState('')
-  const [students,setStudents] = useState(data.alumnus)
+  const [search, setSearch] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
+  const [students, setStudents] = useState(data.alumnus);
 
-  useEffect(()=>{
+  useEffect(() => {
     //Handle search
-  const searchHandler = async()=>{
-    try {
-        const res = await Axios.get(`https://alumni-track-system-kr9h.onrender.com/api/v1/head/specific?search=${searchTerm}`)
-        setStudents(res.data.data.outcome)
-    } catch (error) {
-        console.log(error.response)
-    }
-  }
-    searchHandler(); 
-  },[searchTerm])
+    const searchHandler = async () => {
+      try {
+        const res = await Axios.get(
+          `https://alumni-track-system-kr9h.onrender.com/api/v1/head/specific?search=${searchTerm}`
+        );
+        setStudents(res.data.data.outcome);
+      } catch (error) {
+        console.log(error.response);
+      }
+    };
+    searchHandler();
+  }, [searchTerm]);
 
   const totalPages = Math.ceil(students.length / PAGE_SIZE);
 
@@ -39,14 +41,25 @@ export default function HeadAlumniSearch () {
   const endIndex = startIndex + PAGE_SIZE;
   const currentStudents = students.slice(startIndex, endIndex);
 
-  
-
   return (
     <div style={myStyle}>
       <div className="input-group mb-3">
-      <input type="text" className="form-control mt-3" placeholder="Search" aria-label="Search" aria-describedby="search-button" onChange={(e)=>setSearch(e.target.value)} />
-      <button className="btn btn-outline-secondary mt-3" id="search-button" onClick={()=>setSearchTerm(search)}>Search</button>
-    </div>
+        <input
+          type="text"
+          className="form-control mt-3"
+          placeholder="Search"
+          aria-label="Search"
+          aria-describedby="search-button"
+          onChange={(e) => setSearch(e.target.value)}
+        />
+        <button
+          className="btn btn-outline-secondary mt-3"
+          id="search-button"
+          onClick={() => setSearchTerm(search)}
+        >
+          Search
+        </button>
+      </div>
 
       <table className="table">
         <thead>
@@ -64,7 +77,10 @@ export default function HeadAlumniSearch () {
         <tbody>
           {currentStudents.map((student) => (
             <tr key={student.id}>
-              <td>{student.first_name} {student.last_name} {student.grandfather_name}</td>
+              <td>
+                {student.first_name} {student.last_name}{" "}
+                {student.grandfather_name}
+              </td>
               <td>{student.gpa}</td>
               <td>{student.occupation}</td>
               <td>{student.email}</td>
@@ -78,37 +94,53 @@ export default function HeadAlumniSearch () {
       </table>
       <nav aria-label="Page navigation example">
         <ul className="pagination justify-content-center">
-          <li className={`page-item ${currentPage === 1 && 'disabled'}`}>
-            <button className="page-link" onClick={handlePrevPage}>Previous</button>
+          <li className={`page-item ${currentPage === 1 && "disabled"}`}>
+            <button className="page-link" onClick={handlePrevPage}>
+              Previous
+            </button>
           </li>
           {Array.from({ length: totalPages }, (_, index) => {
             const pageNumber = index + 1;
             return (
-              <li key={pageNumber} className={`page-item ${pageNumber === currentPage && 'active'}`}>
-                <button className="page-link" onClick={() => setCurrentPage(pageNumber)}>{pageNumber}</button>
+              <li
+                key={pageNumber}
+                className={`page-item ${
+                  pageNumber === currentPage && "active"
+                }`}
+              >
+                <button
+                  className="page-link"
+                  onClick={() => setCurrentPage(pageNumber)}
+                >
+                  {pageNumber}
+                </button>
               </li>
             );
           })}
-          <li className={`page-item ${currentPage === totalPages && 'disabled'}`}>
-            <button className="page-link" onClick={handleNextPage}>Next</button>
+          <li
+            className={`page-item ${currentPage === totalPages && "disabled"}`}
+          >
+            <button className="page-link" onClick={handleNextPage}>
+              Next
+            </button>
           </li>
         </ul>
       </nav>
     </div>
   );
-};
-const myStyle = {
-  margin: "40px 380px",
-};
-export const HeadAlumniSearchLoader = async()=>{
-    try {
-        const res = await Axios.get('https://alumni-track-system-kr9h.onrender.com/api/v1/head/alumni')
-        const data = {
-            alumnus: res.data.data.alumnus,
-            length: res.data.length
-        }
-        return data
-    } catch (error) {
-        
-    }
 }
+const myStyle = {
+  margin: "40px 230px",
+};
+export const HeadAlumniSearchLoader = async () => {
+  try {
+    const res = await Axios.get(
+      "https://alumni-track-system-kr9h.onrender.com/api/v1/head/alumni"
+    );
+    const data = {
+      alumnus: res.data.data.alumnus,
+      length: res.data.length,
+    };
+    return data;
+  } catch (error) {}
+};
