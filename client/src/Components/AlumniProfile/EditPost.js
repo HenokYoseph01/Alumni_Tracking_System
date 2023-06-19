@@ -1,7 +1,7 @@
 import { Form, NavLink, redirect, useLocation, useNavigate } from "react-router-dom";
 import Axios from 'axios'
 import { useState } from "react";
-
+import '../components.css'
 export default function EditForum(){
     const location = useLocation();
     const navigate = useNavigate();
@@ -22,7 +22,7 @@ export default function EditForum(){
     }
 
     return (
-        <div className="container">
+        <div style={myStyle}>
         <NavLink to='/alumnus/forum/me'>My Posts</NavLink>    
         <h2>Edit Post</h2>
           <div className="mb-3">
@@ -55,10 +55,12 @@ export default function EditForum(){
               name = "description"
             ></textarea>
           </div>
-          <button className="btn btn-primary" onClick={editPost}>
+          <button className="button" onClick={editPost}>
             Submit
           </button>
       </div>
     );
 }
-
+const myStyle = {
+  margin: "40px 380px",
+};

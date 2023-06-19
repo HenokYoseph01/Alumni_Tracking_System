@@ -9,13 +9,14 @@ import "../css/navbar.css";
 export default function AdminLayout(){
     return(
       <>
-      <div class="header">
-        <div class="brand">
-          <img src={img} class="aau-logo" />
+      <div className="header">
+        <div className="brand">
+          <img src={img} className="aau-logo" />
           <h2>Alumni Tracking System - School of Information Science</h2>
-          <img src={sislogo} class="sis-logo" />
+          <img src={sislogo} className="sis-logo" />
         </div>
-        <Navbar class="navbar">
+        <div>
+        <Navbar className="navbar">
           <Nav id="navbar-nav">
             <NavDropdown title="Profile" id="profile-dropdown" className="item">
               <NavDropdown.Item>
@@ -62,6 +63,7 @@ export default function AdminLayout(){
             </Nav.Link>
           </Nav>
         </Navbar>
+        </div>
         <main>
           <Outlet/>
         </main>
