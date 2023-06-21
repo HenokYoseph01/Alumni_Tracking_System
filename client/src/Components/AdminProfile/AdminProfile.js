@@ -1,7 +1,6 @@
 import React from 'react';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import '../components.css'
 import {
   MDBCol,
   MDBContainer,
@@ -25,18 +24,18 @@ import { useLoaderData } from 'react-router-dom';
 function AdminProfile() {
   const data = useLoaderData();
   return (
-    <section className = "profile_content">
+    <section className = "container">
      
         <MDBRow>
           <MDBCol>
-            <MDBBreadcrumb className="nav rounded-3 p-3 mb-4">
+            <MDBBreadcrumb className="nav rounded-3 p-3 mb-4 mt-5">
               <MDBBreadcrumbItem className='bc_item white' active>Admin Profile</MDBBreadcrumbItem>
             </MDBBreadcrumb>
           </MDBCol>
         </MDBRow>
 
         <MDBRow>
-          <MDBCol lg="8">
+          <MDBCol >
             
               <MDBCardBody className='cardy'>
                 <MDBRow className='de'>

@@ -24,7 +24,7 @@ import '../components.css'
 function ProfilePage() {
   const data = useLoaderData();
   return (
-    <section style={myStyle}>
+    <section className='container'>
       <MDBContainer className="profile-cont">
          <MDBRow>
           <MDBCol>

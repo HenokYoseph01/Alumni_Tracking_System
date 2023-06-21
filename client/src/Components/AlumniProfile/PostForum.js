@@ -6,8 +6,8 @@ export default function PostForum(){
 
 
     return (
-        <div style={myStyle}>
-        <h2>Create a Post</h2>
+        <div className="container mt-5">
+        <h2 className="text-center">Create a Post</h2>
         <Form method="post" action='/alumnus/forum/create'>
           <div className="mb-3">
             <label htmlFor="title" className="form-label">
@@ -42,9 +42,7 @@ export default function PostForum(){
       </div>
     );
 }
-const myStyle = {
-  margin: "40px 380px",
-};
+
 export const PostForumAction = async({request})=>{
     try {
         const data = await request.formData();

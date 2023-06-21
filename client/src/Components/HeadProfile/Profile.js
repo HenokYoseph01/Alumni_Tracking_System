@@ -24,7 +24,7 @@ import '../components.css'
 function HeadProfilePage() {
   const data = useLoaderData();
   return (
-    <section style={myStyle}>
+    <section className='container mt-5'>
      <MDBRow>
           <MDBCol>
             <MDBBreadcrumb className="nav rounded-3 p-3 mb-4">

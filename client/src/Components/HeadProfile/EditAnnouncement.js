@@ -10,22 +10,23 @@ export default function EditAnnouncement(){
     console.log(id)
     return (
         <div className="container mt-5">
-          <h2>Edit Event</h2>
+          <h1 className='text-center mt-3 me-lg-5'>Edit Announcement</h1>
           <Form method='patch' action={action} >
-            <div className="mb-3">
+          <div className='container row justify-content-center mt-3'>
+           <div className="col-lg-4 col-md-6">
               <label htmlFor="eventName" className="form-label">
                 Event Name
               </label>
               <input
                 type="text"
-                className="form-control"
+                className="form-control" // border border-dark
                 id="eventName"
                 name="eventName"
                 defaultValue={data.name}
                 required
               />
             </div>
-            <div className="mb-3">
+            <div className="col-lg-4 col-md-6">
               <label htmlFor="category" className="form-label">
                 Category
               </label>
@@ -40,7 +41,11 @@ export default function EditAnnouncement(){
                 <option value="Job Offers">Job Offers</option>
               </select>
             </div>
-            <div className="mb-3">
+
+          </div>
+          
+          <div className='container row justify-content-center mt-3'>
+           <div className="col-lg-8 col-md-12">
               <label htmlFor="description" className="form-label">
                 Description
               </label>
@@ -53,7 +58,11 @@ export default function EditAnnouncement(){
                 required
               ></textarea>
             </div>
-            <div className="mb-3">
+
+          </div>
+
+          <div className='container row justify-content-center mt-3'>
+            <div className="col-lg-4 col-md-6">
               <label htmlFor="eventDate" className="form-label">
                 Event Date
               </label>
@@ -66,7 +75,7 @@ export default function EditAnnouncement(){
                 required
               />
             </div>
-            <div className="mb-3">
+            <div className="col-lg-4 col-md-6">
               <label htmlFor="startTime" className="form-label">
                 Start Time
               </label>
@@ -79,7 +88,11 @@ export default function EditAnnouncement(){
                 required
               />
             </div>
-            <div className="mb-3">
+
+          </div>
+
+          <div className='container row justify-content-center mt-3'>
+          <div className="col-lg-4 col-md-6">
               <label htmlFor="endTime" className="form-label">
                 End Time
               </label>
@@ -92,7 +105,7 @@ export default function EditAnnouncement(){
                 required
               />
             </div>
-            <div className="mb-3">
+            <div className="col-lg-4 col-md-6">
               <label htmlFor="venue" className="form-label">
                 Venue
               </label>
@@ -105,7 +118,11 @@ export default function EditAnnouncement(){
                 required
               />
             </div>
-            <div className="mb-3">
+
+          </div>
+
+          <div className='container row justify-content-center mt-3'>
+            <div className="col-lg-4 col-md-6">
               <label htmlFor="host" className="form-label">
                 Host
               </label>
@@ -118,7 +135,7 @@ export default function EditAnnouncement(){
                 required
               />
             </div>
-            <div className="mb-3">
+            <div className="col-lg-4 col-md-6">
               <label htmlFor="view" className="form-label">
                 Viewability
               </label>
@@ -133,7 +150,15 @@ export default function EditAnnouncement(){
               </select>
             </div>
             
-            <button className='button'>Submit</button>
+
+          </div>
+
+          <div className='container row justify-content-center mt-3'>
+          <button className='button col-lg-4 col-md-6'>Submit</button>
+
+          </div>
+
+            
     </Form>
     </div>)
 }

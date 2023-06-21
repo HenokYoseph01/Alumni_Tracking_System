@@ -13,8 +13,8 @@ export default function Forum(){
     }
     return(
         <>
-        <div style={myStyle} className={classes.forum_container}>
-            <h2>Discussion Forum</h2>
+        <div className={classes.forum_container}>
+            <h2 className="text-center">Discussion Forum</h2>
             {data.map(post=>(
                 <div key={post.id} className={classes.post_container}>
                     <h3 className={classes.post_title}>{post.title}</h3>
@@ -35,9 +35,7 @@ export default function Forum(){
         
     )
 }
-const myStyle = {
-    margin: "40px 380px",
-  };
+
 export const forumLoader = async()=>{
     try {
         const res = await Axios.get('https://alumni-track-system-kr9h.onrender.com/api/v1/alumni/forum')

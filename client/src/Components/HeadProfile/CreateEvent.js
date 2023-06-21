@@ -8,10 +8,11 @@ export default function CreateEvent() {
 
 
   return (
-    <div style = {myStyle}>
-      <h2>Create Event</h2>
+    <div>
+      <h1 className='text-center mt-3 me-lg-5'>Create Announcement</h1>
       <Form method='post' action='/head/announcement'>
-        <div className="mb-3">
+      <div className='container row justify-content-center mt-3'>
+      <div className="col-lg-4 col-md-6">
           <label htmlFor="eventName" className="form-label">
             Event Name
           </label>
@@ -23,7 +24,7 @@ export default function CreateEvent() {
             required
           />
         </div>
-        <div className="mb-3">
+        <div className="col-lg-4 col-md-6">
           <label htmlFor="category" className="form-label">
             Category
           </label>
@@ -38,7 +39,11 @@ export default function CreateEvent() {
             <option value="Job Offers">Job Offers</option>
           </select>
         </div>
-        <div className="mb-3">
+
+      </div>
+
+      <div className='container row justify-content-center mt-3'>
+        <div className="col-lg-8  col-md-12">
           <label htmlFor="description" className="form-label">
             Description
           </label>
@@ -50,7 +55,10 @@ export default function CreateEvent() {
             required
           ></textarea>
         </div>
-        <div className="mb-3">
+      </div>
+
+      <div className='container row justify-content-center mt-3'>
+      <div className="col-lg-4 col-md-6">
           <label htmlFor="eventDate" className="form-label">
             Event Date
           </label>
@@ -62,7 +70,7 @@ export default function CreateEvent() {
             required
           />
         </div>
-        <div className="mb-3">
+        <div className="col-lg-4 col-md-6">
           <label htmlFor="startTime" className="form-label">
             Start Time
           </label>
@@ -74,7 +82,10 @@ export default function CreateEvent() {
             required
           />
         </div>
-        <div className="mb-3">
+      </div>  
+
+      <div className='container row justify-content-center mt-3'>
+       <div className="col-lg-4 col-md-6">
           <label htmlFor="endTime" className="form-label">
             End Time
           </label>
@@ -86,7 +97,7 @@ export default function CreateEvent() {
             required
           />
         </div>
-        <div className="mb-3">
+        <div className="col-lg-4 col-md-6">
           <label htmlFor="venue" className="form-label">
             Venue
           </label>
@@ -98,7 +109,11 @@ export default function CreateEvent() {
             required
           />
         </div>
-        <div className="mb-3">
+
+      </div>
+
+      <div className='container row justify-content-center mt-3'>
+      <div className="col-lg-4 col-md-6">
           <label htmlFor="host" className="form-label">
             Host
           </label>
@@ -110,7 +125,7 @@ export default function CreateEvent() {
             required
           />
         </div>
-        <div className="mb-3">
+        <div className="col-lg-4 col-md-6">
           <label htmlFor="view" className="form-label">
             Viewability
           </label>
@@ -124,7 +139,12 @@ export default function CreateEvent() {
             <option value="Alumni">Alumni</option>
           </select>
         </div>
-        <button className='button'>Submit</button>
+
+      </div>
+    <div className='container row justify-content-center mt-5'>
+      <button className='button col-4'>Submit</button>
+    </div>
+    
 </Form>
 </div>)
 }
