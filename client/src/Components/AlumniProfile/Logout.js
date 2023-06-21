@@ -7,6 +7,8 @@ export default function Logout(){
 
     useEffect(()=>{
         try {
+            
+            document.cookie = "id=; expiresIn=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
            Axios.defaults.headers.common = {'Authorization':null}
            navigate('/',{replace:true});
 

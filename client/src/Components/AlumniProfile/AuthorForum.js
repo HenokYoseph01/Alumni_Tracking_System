@@ -31,7 +31,7 @@ export default function AuthorForum(){
           <button type="button" className="btn-close" onClick={() => setShowAlert(false)}></button>
         </div>
       )}
-      <div style={myStyle}>
+      <div>
         <div className={classes.forum_container}>
             <h2>My Posts</h2>
             {data.map(post=>(
@@ -64,9 +64,7 @@ export default function AuthorForum(){
         
     )
 }
-const myStyle = {
-    margin: "40px 380px",
-  };
+
 export const authorForumLoader = async()=>{
     try {
         const res = await Axios.get('https://alumni-track-system-kr9h.onrender.com/api/v1/alumni/forum/me')

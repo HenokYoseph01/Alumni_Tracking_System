@@ -55,9 +55,10 @@ const UpdateAlumniProfile = () => {
   };
 
   return (
-    <div style={myStyle}>
+    <div >
     <form>
-      <div className="form-group">
+      <div className='container row justify-content-center mt-5'>
+      <div className="form-group col-lg-4 col-md-6">
         <label htmlFor='firstName' className="form-label">First Name:</label>
         <input
           type="text"
@@ -69,7 +70,7 @@ const UpdateAlumniProfile = () => {
         />
       </div>
 
-      <div className="form-group mt-2">
+      <div className="form-group col-lg-4 col-md-6">
         <label htmlFor='lastName' className="form-label">Last Name:</label>
         <input
           type="text"
@@ -81,7 +82,10 @@ const UpdateAlumniProfile = () => {
         />
       </div>
 
-      <div className="form-group mt-2">
+      </div>
+      
+      <div className='container row justify-content-center'>
+      <div className="form-group mt-2 col-lg-4 col-md-6">
         <label htmlFor='grandfatherName' className="form-label">Grandfather Name:</label>
         <input
           type="text"
@@ -93,7 +97,7 @@ const UpdateAlumniProfile = () => {
         />
       </div>
 
-      <div className="form-group mt-2">
+      <div className="form-group mt-2 col-lg-4 col-md-6">
         <label htmlFor='email' className="form-label">Email:</label>
         <input
           type="text"
@@ -105,7 +109,11 @@ const UpdateAlumniProfile = () => {
         />
       </div>
 
-      <div className="form-group mt-2">
+
+      </div>
+     
+      <div className='container row justify-content-center'>
+      <div className="form-group mt-2 col-lg-4 col-md-6">
         <label htmlFor='phoneNumber' className="form-label">Phone Number:</label>
         <input
           type="text"
@@ -117,7 +125,7 @@ const UpdateAlumniProfile = () => {
         />
       </div>
 
-      <div className="form-group mt-2">
+      <div className="form-group mt-2 col-lg-4 col-md-6">
         <label htmlFor='phoneNumberAlt' className="form-label">Phone Number 2:</label>
         <input
           type="text"
@@ -128,8 +136,11 @@ const UpdateAlumniProfile = () => {
 
         />
       </div>
-
-      <div className="form-group mt-2">
+        
+      </div>
+     
+      <div className='container row justify-content-center'>
+      <div className="form-group mt-2 col-lg-4 col-md-6">
         <label htmlFor='linkedIn' className="form-label">linkedIn:</label>
         <input
           type="text"
@@ -141,8 +152,8 @@ const UpdateAlumniProfile = () => {
         />
       </div>
 
-      <div className="form-group mt-2">
-        <label className="nationality">Nationality:</label>
+      <div className="form-group mt-2 col-lg-4 col-md-6">
+        <label htmlFor='nationalty' className="form-label">Nationality:</label>
         <input
           type="text"
           className="form-control"
@@ -153,7 +164,11 @@ const UpdateAlumniProfile = () => {
         />
       </div>
 
-      <div className="form-group mt-2">
+      </div>
+     
+      <div className='container row justify-content-center'> 
+      
+      <div className="form-group mt-2 col-lg-4 col-md-6">
         <label htmlFor='region' className="form-label">Region:</label>
         <input
           type="text"
@@ -165,7 +180,7 @@ const UpdateAlumniProfile = () => {
         />
       </div>
 
-      <div className="form-group mt-2">
+      <div className="form-group mt-2 col-lg-4 col-md-6">
         <label htmlFor='city' className="form-label">City:</label>
         <input
           type="text"
@@ -176,8 +191,11 @@ const UpdateAlumniProfile = () => {
 
         />
       </div>
-
-      <div className="form-group mt-2">
+      
+      </div>
+      
+      <div className='container row justify-content-center'> 
+      <div className="form-group mt-2 col-lg-4 col-md-6">
         <label htmlFor='subcity' className="form-label">Sub City:</label>
         <input
           type="text"
@@ -189,7 +207,7 @@ const UpdateAlumniProfile = () => {
         />
       </div>
 
-      <div className="form-group mt-2">
+      <div className="form-group mt-2 col-lg-4 col-md-6">
         <label htmlFor='occupation' className="form-label">Occupation:</label>
         <input
           type="text"
@@ -201,7 +219,10 @@ const UpdateAlumniProfile = () => {
         />
       </div>
 
-      <div className="form-group mt-2">
+      </div>
+
+      <div className='container row justify-content-center'> 
+      <div className="form-group mt-2 col-lg-4 col-md-6">
         <label htmlFor='workplace' className="form-label">Place of Work:</label>
         <input
           type="text"
@@ -214,7 +235,7 @@ const UpdateAlumniProfile = () => {
         
       </div>
 
-      <div className="form-group mt-2">
+      <div className="form-group mt-2 col-lg-4 col-md-6">
         <label htmlFor='image' className="form-label">Image:</label>
         <input
           type="file"
@@ -226,8 +247,14 @@ const UpdateAlumniProfile = () => {
         
       </div>
     
+      </div>
       
-      <button className="button" onClick={handleSubmit}>Update</button>
+      <div className='container row justify-content-center mt-3'>
+      
+      <button className="button col-lg-4 col-md-6" onClick={handleSubmit}>Update</button>
+
+      </div> 
+
     </form>
     
     </div>

@@ -42,7 +42,7 @@ export default function HeadAlumniSearch() {
   const currentStudents = students.slice(startIndex, endIndex);
 
   return (
-    <div style={myStyle}>
+    <div className="container mt-3">
       <div className="input-group mb-3">
         <input
           type="text"

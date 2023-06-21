@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Axios from 'axios'
-import '../components.css'
 function HeadOfSchoolForm() {
   const [first_name, setFirstName] = useState('');
   const [last_name, setLastName] = useState('');
@@ -39,10 +38,11 @@ function HeadOfSchoolForm() {
   };
 
   return (
-    <div style={myStyle}>
-      <h1>Create Head of School Account</h1>
+    <div>
+      <h1 className='text-center mt-3 me-lg-5'>Create Head of School Account</h1>
       <form onSubmit={handleSubmit}>
-        <div className="form-group">
+      <div className='container row justify-content-center mt-4'>
+      <div className="form-group col-lg-4 col-md-6">
           <label htmlFor="firstName" className="form-label">First Name:</label>
           <input
             type="text"
@@ -53,8 +53,8 @@ function HeadOfSchoolForm() {
             required
           />
         </div>
-        <div className="form-group">
-          <label htmlFor="lastName" className="form-label mt-2">Last Name:</label>
+        <div className="form-group col-lg-4 col-md-6">
+          <label htmlFor="lastName" className="form-label">Last Name:</label>
           <input
             type="text"
             className="form-control"
@@ -64,7 +64,11 @@ function HeadOfSchoolForm() {
             required
           />
         </div>
-        <div className="form-group">
+
+      </div>
+
+      <div className='container row justify-content-center mt-3'>
+      <div className="form-group col-lg-4 col-md-6">
           <label htmlFor="grandfatherName" className="form-label mt-2">Grandfather Name:</label>
           <input
             type="text"
@@ -75,7 +79,7 @@ function HeadOfSchoolForm() {
             required
           />
         </div>
-        <div className="form-group">
+        <div className="form-group col-lg-4 col-md-6">
           <label htmlFor="phoneNumber" className="form-label mt-2">Phone Number:</label>
           <input
             type="text"
@@ -86,7 +90,10 @@ function HeadOfSchoolForm() {
             required
           />
         </div>
-        <div className="form-group">
+      </div>
+
+      <div className='container row justify-content-center mt-3'>
+      <div className="form-group col-lg-4 col-md-6">
           <label htmlFor="email" className="form-label mt-2">Email:</label>
           <input
             type="email"
@@ -97,7 +104,7 @@ function HeadOfSchoolForm() {
             required
           />
         </div>
-        <div className="form-group">
+        <div className="form-group col-lg-4 col-md-6">
           <label htmlFor="department" className="form-label mt-2">Department:</label>
           <input
             type="text"
@@ -108,9 +115,18 @@ function HeadOfSchoolForm() {
             required
           />
         </div>
-        <button type="submit" className="button">
+
+      </div>
+
+      <div className='container row justify-content-center mt-3'>
+      <button type="submit" className="button col-lg-4 col-md-6">
           Submit
         </button>
+
+      </div>
+
+
+       
       </form>
       {showAlert && (
         <div className="alert alert-success mt-3" role="alert">

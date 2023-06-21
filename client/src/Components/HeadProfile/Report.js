@@ -29,7 +29,7 @@ export default function ReportGenerator() {
   //if(data && data.alert) setIsReportGenerated(true);
 
   return (
-    <div style={myStyle}>
+    <div className="container-md mt-5">
       {isReportGenerated && (
         <div className="alert alert-success my-3" role="alert">
           Report generated successfully!
