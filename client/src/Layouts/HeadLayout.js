@@ -5,6 +5,8 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import img from "./assets/aau-logo.png";
 import sislogo from "./assets/school logo.jpg";
 import "../css/navbar.css";
+import Offcanvas from 'react-bootstrap/Offcanvas';
+
 export default function HeadLayout(){
     return (
       <>
@@ -14,8 +16,17 @@ export default function HeadLayout(){
             <h2>Alumni Tracking System - School of Information Science</h2>
             <img src={sislogo} class="sis-logo" />
           </div>
-          <Navbar class="navbar">
-            <Nav id="navbar-nav">
+          <Navbar key='md' expand='md'>
+          <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-md`} className = 'border border-dark mb-5'/>
+      
+      <Navbar.Offcanvas
+        id={`offcanvasNavbar-expand-md`}
+        aria-labelledby={`offcanvasNavbarLabel-expand-md`}
+        placement="end"
+
+      > 
+       <Offcanvas.Body>
+       <Nav className="justify-content-center flex-grow-1 pe-3">
               <NavDropdown title="Profile" className="item">
                 <NavDropdown.Item className="dropdown-item">
                     <NavLink to="/head/profile" className="route" id="profile">
@@ -55,7 +66,10 @@ export default function HeadLayout(){
                 </NavLink>
               </Nav.Link>
             </Nav>
-          </Navbar>
+
+       </Offcanvas.Body>
+      </Navbar.Offcanvas>
+      </Navbar>
           <main>
             <Outlet />
           </main>

@@ -37,7 +37,7 @@ export default function Alumni(){
         {data.map((alumni) => (
           <div className="col-md-4" key={alumni.id}>
             <div className="card">
-              <img src={alumni.photo_url} className="card-img-top" alt="Alumni" />
+              <img src={alumni.photo_url} className="card-img-top" alt="Alumni" style={{height:"auto",width:"auto",maxHeight:'400px','minHeight':"400px"}} />
               <div className="card-body">
                 <h5 className="card-title">{alumni.first_name} {alumni.last_name}</h5>
                 <p className="card-text">{alumni.grandfather_name}</p>

@@ -20,7 +20,7 @@ export default function Hero() {
           WELCOME TO <br />
           THE ALUMNI FAMILY
         </h1>
-        <div className="second">
+        <div className="second container">
           <span className="p1">Addis Ababa University</span>
           <span className="vertical"></span>
           <span className="p2">School Of Information Science</span>
@@ -28,9 +28,9 @@ export default function Hero() {
       </div>
       <img id="landing-img" className={classes.img} src={landing} />
       <div style={myStyle}>
-        <div>
-          <MDBCard alignment="center">
-            <MDBRow style={{ marginLeft: "50px" }}>
+        <div className="container">
+          <MDBCard alignment="center" className="container">
+            <MDBRow>
               <MDBCol sm="7">
                 <MDBCardBody>
                   <MDBCardTitle>
