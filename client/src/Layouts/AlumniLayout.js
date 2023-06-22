@@ -5,6 +5,8 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import img from "./assets/aau-logo.png";
 import sislogo from "./assets/school logo.jpg";
 import "../css/navbar.css";
+import Offcanvas from 'react-bootstrap/Offcanvas';
+
 
 export default function AdminLayout(){
     return(
@@ -16,8 +18,17 @@ export default function AdminLayout(){
           <img src={sislogo} className="sis-logo" />
         </div>
         <div>
-        <Navbar className="navbar">
-          <Nav id="navbar-nav">
+        <Navbar key='md' expand='md'>
+        <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-md`} className = 'border border-dark mb-5'/>
+      
+      <Navbar.Offcanvas
+        id={`offcanvasNavbar-expand-md`}
+        aria-labelledby={`offcanvasNavbarLabel-expand-md`}
+        placement="end"
+        
+      > 
+      <Offcanvas.Body>
+      <Nav className="justify-content-center flex-grow-1 pe-3">
             <NavDropdown title="Profile" id="profile-dropdown" className="item">
               <NavDropdown.Item>
                 <NavLink to="/alumnus/profile" className="dropdown-item">Profile</NavLink>
@@ -62,6 +73,9 @@ export default function AdminLayout(){
               <NavLink to="/alumnus/logout" className="route">Logout</NavLink>
             </Nav.Link>
           </Nav>
+      </Offcanvas.Body>
+      </Navbar.Offcanvas>
+          
         </Navbar>
         </div>
         <main>

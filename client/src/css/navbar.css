@@ -40,8 +40,8 @@
   margin-left: 15px;
 }
 .header .navbar {
-  height: 20px;
-  justify-content: center;
+  height: 50px;
+  justify-content: end;
   background-color: var(--color-yellow);
 }
 .header .navbar .item {

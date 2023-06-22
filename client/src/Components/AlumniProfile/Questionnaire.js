@@ -23,15 +23,15 @@ export default function Questionnaire() {
     //Post data
     const submitData = async(e)=>{
         e.preventDefault();
+        console.log('Start')
         console.log(data)
         try {
             await Axios.post('https://alumni-track-system-kr9h.onrender.com/api/v1/alumni/register',{
                 first_name: data.first_name,
                 last_name: data.last_name,
                 grandfather_name: data.grandfather_name,
-                email: data.email,
                 phone_number1: data.phone_number1,
-                phone_number_alt:data.phone_number_alt,
+                phone_number_alt:data.phone_number_alt?data.phone_number_alt:'none',
                 nationality: data.nationality,
                 region: data.region,
                 city: data.city,
@@ -49,6 +49,7 @@ export default function Questionnaire() {
             })
             navigate('/alumnus/profile',{replace:true})
         } catch (error) {
+            console.log('Error')
             console.log(error.response)
         }
     }
